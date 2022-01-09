@@ -15,23 +15,28 @@ $result_user = mysqli_stmt_get_result($stmt);
 if($result_user->num_rows ==1 ){
   session_start();
   $row_user = mysqli_fetch_array($result_user,MYSQLI_ASSOC);
-
   mysqli_close($conn);
-  $_SESSION['login_id'] = $row_user['userName'];
+  $_SESSION['login_id'] = $row_user['id'];
   if($row_user['role'] == 0){
     $_SESSION['role'] = "admin";
-    echo json_encode(array("status"=>"true","role"=>"admin"));
+    $_SESSION['statusLogin'] = 1;
+    header("Location:../main.php");
   }elseif($row_user['role'] == 1){
     $_SESSION['role'] = "staff";
-    echo json_encode(array("status"=>"true","role"=>"staff"));
+    $_SESSION['statusLogin'] = 1;
+    header("Location:../main.php");
   }elseif($row_user['role'] == 2){
     $_SESSION['role'] = "student";
-    echo json_encode(array("status"=>"true","role"=>"student"));
+    $_SESSION['statusLogin'] = 1;
+    header("Location:../main.php");
   }else{
-    echo json_encode(array("status"=>"false"));
+    $_SESSION['statusLogin'] = 0;
+    header("Location:../index.php?status=0");
   }
 }else{
-  echo json_encode(array("status"=>"false","message"=>"can't login"));
+  $_SESSION['statusLogin'] = 0;
+  header("Location:../index.php?status=0");
 }
-mysqli_free_result($result_user);
+
+
 ?>

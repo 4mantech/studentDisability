@@ -10,12 +10,10 @@
   require('../bootstrap5JS.php'); 
   require('query/checkLogin.php');
   ?>
-    <link rel="stylesheet" href="../assets/css/styleMain.css">
 </head>
 <style>
-  #newsslide {
-    position: relative;
-    left:10%;
+  body {
+    background-image: url('img/bgMain.png');
   }
 </style>
 <body>
@@ -24,8 +22,8 @@
   <div class="row">
     <div class="col-2">
     </div>
-    <div id="newsslide" class=" col-8 mt-2">
-      <?php require('components/newsSlide.php'); ?>
+    <div class=" col-8 mt-2 border" >
+        
     </div>
   </div>
 </div>
