@@ -20,11 +20,16 @@
 <?php require('components/navbar.php'); ?>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-2">
+    <div class="col-4 mt-4">
     </div>
-    <div class=" col-8 mt-2 border" >
-        
+      <div class=" card col-4 mt-2 text-center" >
+        <div class="card-header">
+          <b>เอกสารแสดงความจำนงขอรับเงินอุดหนุน</b>
+          <a>ไฟล์</a> <br>
+          <a href=".../img/students/potae.jpg" class="btn btn-info" download>ดาวน์โหลดเอกสาร</a><br>
+        </div>
     </div>
+    
   </div>
 </div>
 <div class="mt-4">

@@ -22,7 +22,7 @@
       <div class="col-2">
       </div>
       <div id="profilepic" class=" card col-8 border mt-2 mb-5">
-        <h4 class="mt-4">&nbsp;&nbsp; ข้อมูลนักศึกษา</h4>
+        <h4 class="mt-4">&nbsp;&nbsp; เพิ่มนักศึกษา</h4>
           <div class=" text-center mt-4">
           <input type="hidden" id="id" value="<?php echo $_GET['id']; ?>"/>
             <img class="border border-dark" src="img/students/potae.jpg" style="width:150px;height:auto;"><br></br>
@@ -155,6 +155,7 @@
                 <div class=" text-start form-outline mb-3 ">
                   <label>คณะ</label>
                   <select class="form-select" id="fac" aria-label="Default select example">
+                    <option value="0" selected></option>
                     <option value="2">คณะวิศวกรรมศาสตร์</option>
                     <option value="3">คณะบริหารธุรกิจ</option>
                     <option value="4">คณะเทคโนโลยีคหกรรมศาสตร์</option>
@@ -173,16 +174,16 @@
               <div class="col-4">
               <label>สาขา</label>
                 <select class="form-select" id="dep" aria-label="Default select example">
+                  <option value="0" selected></option>
             </select>
               </div>
             </div>
             
             <div class="row">
               <div class="col-2"></div>
-                <div class="col-8 text-center mt-3">
+                <div class="col-8 text-center mt-3 mb-4">
                   <a href="showStudentsInfo.php" class="btn btn-danger">ย้อนกลับ</a>
-                  <button type="button" class="btn btn-warning">แก้ไข</button>
-                  <a href="form_download_staff-+.php"  type="button" class="btn btn-info">ตรวจสอบเอกสาร</a>
+                  <button type="button" class="btn btn-warning">บันทึก</button>
                 </div>
               </div>   
             </div>
@@ -193,7 +194,7 @@
   <div class="mt-4 mb-5">
     <?php require('components/footer.php'); ?>
   </div>
-  <script src="ajax/showOneStudent.js"></script>
+  <script src="ajax/showStudents.js"></script>
 </body>
 
 </html>

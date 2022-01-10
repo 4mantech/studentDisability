@@ -1,8 +1,7 @@
-var fac = "";
-var dep = "";
-
+var fac = "0";
+var dep = "0";
 var ShowStudents = () => {
-  console.log(fac + dep);
+  
   $.ajax({
     type: "GET",
     url: "query/showStudents.php",
@@ -12,6 +11,8 @@ var ShowStudents = () => {
     },
     success: function (data) {
       var new_data = JSON.parse(data).studentsObj;
+      if(new_data != null){
+      console.log(new_data);
       new_data.forEach((element, index) => {
         $("#tbody").append(`
         <tr>
@@ -25,34 +26,28 @@ var ShowStudents = () => {
             <td><button type="button" class="btn btn-danger btn-m">ลบ</button></td>
         </tr>
         `);
+      });
+      }
+      table =$("#studentsTable").DataTable();
+    },
+  });
+};
 
-        table= $("#studentsTable").DataTable({
-          destroy: true,
-          language: {
-            decimal: "",
-            emptyTable: "ไม่พบข้อมูล",
-            info: "แสดง _START_ ถึง _END_ จาก _TOTAL_ แถว",
-            infoEmpty: "แสดง 0 ถึง 0 จาก 0 แถว",
-            infoFiltered: "(กรอง จาก _MAX_ total แถว)",
-            infoPostFix: "",
-            thousands: ",",
-            lengthMenu: "แสดง _MENU_ แถว",
-            loadingRecords: "กำลังโหลด...",
-            processing: "กำลังประมวลผล...",
-            search: "ค้นหา:",
-            zeroRecords: "ไม่พบข้อมูล",
-            paginate: {
-              first: "หน้าแรก",
-              last: "หน้าสุดท้าย",
-              next: "ถัดไป",
-              previous: "ก่อนหน้า",
-            },
-            aria: {
-              sortAscending: ": activate to sort column ascending",
-              sortDescending: ": activate to sort column descending",
-            },
-          },
-        });
+var showDepartments = (facId) => {
+  $.ajax({
+    url: "query/showDepartments.php",
+    type: "GET",
+    data: {
+      fac: facId,
+    },
+    success: function (data) {
+      let new_data = JSON.parse(data).depObj;
+      $("#dep").children().remove();
+      $("#dep").html('<option value="0"></option>');
+      new_data.forEach((element) => {
+        $("#dep").append(`
+        <option value="${element.id}">${element.departmentName}</option>
+        `);
       });
     },
   });
@@ -60,16 +55,24 @@ var ShowStudents = () => {
 
 $(document).ready(function () {
   ShowStudents();
+  showDepartments(fac);
 
   $("#fac").change(function () {
     fac = $("#fac").val();
-    $('#tbody').children().remove();
+    dep = $("#dep").val();
+    table.destroy()
+    $("#tbody").children().remove();
     ShowStudents();
-    
+    showDepartments(fac);
   });
 
-  $("#footer").removeClass("fixed-bottom");
-  $("#footer").addClass("sticky-bottom");
+  $("#dep").change(function () {
+    fac = $("#fac").val();
+    dep = $("#dep").val();
+    table.destroy()
+    $("#tbody").children().remove();
+    ShowStudents();
+  });
 });
 
 // SoloAlert.confirm({
@@ -79,3 +82,4 @@ $(document).ready(function () {
 //   onOk : ()=>{alert("kuy")},
 //   onCancel: ()=>{alert("ยกเลิก")},
 // });
+

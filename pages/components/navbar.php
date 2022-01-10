@@ -38,21 +38,33 @@
               <?php
                 if($s_login_role == "แอดมิน" || $s_login_role == "เจ้าหน้าที่"){
               ?>
-              <li id="nav_booking" class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link text-dark" aria-current="page" id="student_information" href="showStudentsInfo.php">ข้อมูลนักศึกษาพิการ</a>
               </li>
-              <li id="form_result" class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link text-dark"  id="manage" href="manageUsers.php">จัดการข้อมูลผู้ใช้</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark"  id="upload" href="form_upload_staff.php">อัพโหลด</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark"  id="download" href="form_download_staff.php">ดาวน์โหลด</a>
               </li>
               <?php
                 }
               ?>
+              <?php
+                if($s_login_role == "นักศึกษา"){
+              ?>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="upload" href="form_upload.php">อัพโหลด</a>
+                <a class="nav-link text-dark"  id="upload" href="form_upload_student.php">อัพโหลด</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="download" href="form_download.php">ดาวน์โหลด</a>
-              </li> 
+                <a class="nav-link text-dark"  id="download" href="form_download_student.php">ดาวน์โหลด</a>
+              </li>
+              <?php
+                }
+              ?>
             </ul>
           </div>
         </div>
@@ -70,4 +82,3 @@
     </div>
   </div>
 </nav>
-

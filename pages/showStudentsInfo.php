@@ -32,7 +32,7 @@
           <div class="col-4">
             <label>คณะ</label>
             <select class="form-select" id="fac" aria-label="Default select example">
-              <option selected></option>
+              <option value="0" selected></option>
               <option value="2">คณะวิศวกรรมศาสตร์</option>
               <option value="3">คณะบริหารธุรกิจ</option>
               <option value="4">คณะเทคโนโลยีคหกรรมศาสตร์</option>
@@ -49,16 +49,13 @@
           </div>
           <div class="col-4">
             <label>สาขา</label>
-            <select class="form-select" aria-label="Default select example">
-              <option selected></option>
-              <option value="1">วิศวกรรมคอมพิวเตอร์</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select class="form-select" id="dep" aria-label="Default select example">
+              <option value="0" selected></option>
             </select>
           </div>
           <div class="col-4 text-center">
             <br>
-            <button id="addStudent" type="button" class="btn btn-success">เพิ่มนักศึกษา</button>
+            <a href="form_add_student.php" id="addStudent" type="button" class="btn btn-success">เพิ่มนักศึกษา</a>
           </div>
         </div>
 
