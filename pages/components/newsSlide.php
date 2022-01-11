@@ -14,13 +14,14 @@
   <h4>ข่าวประชาสัมพันธ์</h4>
 </div>
   <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
-  <div class="carousel-indicators ">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+  <div class="carousel-indicators" id="btnNews">
+    <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
+
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
+  <div class="carousel-inner" id="imgNews">
+    <!-- <div class="carousel-item active">
       <img src="img/news/eKob.jpg" class="d-block" alt="...">
     </div>
     <div class="carousel-item">
@@ -28,7 +29,7 @@
     </div>
     <div class="carousel-item">
       <img src="img/news/news3.jpg" class="d-block" alt="...">
-    </div>
+    </div> -->
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,3 +41,39 @@
   </button>
 </div>
 </div>
+<script>
+  $.ajax({
+    type:'GET',
+    url:"query/showNews.php",
+    data: {
+      forMain:'yes',
+    },
+    success:function(data){
+      var new_data = JSON.parse(data).newsObj;
+      var newImg = ""
+      var newBtn = ""
+      let count =0
+ 
+
+      new_data.forEach((element,index) => {
+        newImg += ` <div class="carousel-item `
+        if(index==0){
+          newImg += `active`
+        }
+        newImg += `">`;
+        newImg += `<img src="img/news/${element.imagePath}" class="d-block" alt="..."> </div>`
+
+        newBtn += `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${count}" `
+        if(index==0){
+          newBtn += `class="active" aria-current="true" `
+        }
+         newBtn += `aria-label="Slide ${++count}"></button>`
+         count+=1
+      });
+      $("#imgNews").html(newImg);
+      $("#btnNews").html(newBtn);
+      console.log(new_data);
+    },
+  })
+
+</script>

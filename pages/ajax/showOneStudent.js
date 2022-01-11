@@ -25,11 +25,6 @@ var showDepartments = (facId,dep) => {
 $(document).ready(function () {
   var id = document.getElementById("id").value;
 
-//   var dob = new Date(dob);
-//   var today = new Date();
-//   var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
-//   $('#age').html(age);
-
   $.ajax({
     type: "GET",
     url: "query/showOneStudent.php",
@@ -54,17 +49,14 @@ $(document).ready(function () {
       $("#fac").val(new_data[0]["facultyId"]);    
       var fac = $("#fac").val();
       var dep = new_data[0]["departmentId"];
-      showDepartments(fac)
-      console.log(new_data[0]["departmentId"]);
+      showDepartments(fac);
+      var dob = new Date(new_data[0]["birthDate"]);  
+      var month_diff = Date.now() - dob.getTime();  
+      var age_dt = new Date(month_diff);   
+      var year = age_dt.getUTCFullYear();   
+      var age = Math.abs(year - 1970);  
+      $("#age").val(age);
     },
   });
-
 });
-
-// var dob = new Date("#birthday");  
-// var month_diff = Date.now() - dob.getTime();  
-// var age_dt = new Date(month_diff);     
-// var year = age_dt.getUTCFullYear();  
-// var age = Math.abs(year - 1970);
-// $("age").val(age)
   

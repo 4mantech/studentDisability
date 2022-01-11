@@ -26,7 +26,14 @@
           <div class=" text-center mt-4">
           <input type="hidden" id="id" value="<?php echo $_GET['id']; ?>"/>
             <img class="border border-dark" src="img/students/potae.jpg" style="width:150px;height:auto;"><br></br>
-            <button type="file" class="btn btn-primary btn-sm">แก้ไขรูปภาพ</button>
+            <div class="row">
+            <div class="col"></div>
+              <div class="col">
+            <input class="form-control mb-2" type="file" name="file" id="file" disabled>
+            </div>
+            <div class="col">
+            </div>
+            </div>
           </div> 
           <div class="card-body">
             <div class="row">

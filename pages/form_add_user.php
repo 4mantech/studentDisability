@@ -20,9 +20,10 @@
 <?php require('components/navbar.php'); ?>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-2">
+    <div class="col-3">
     </div>
-    <div class=" col-8 mt-2" >
+    <div class=" col-6 mt-2" >
+    <h4>เพิ่มผู้ใช้งาน</h4>
         <div class="card">
         <div class="card-body">
           <div class="mb-3">
@@ -30,12 +31,8 @@
               <div class="col-3">
               </div>
               <div class="col-6">
-              <label style="font-size:20px;"class="card-title">อัพโหลดเอกสารแสดงความจำนงขอรับเงินอุดหนุน</label>
-                <input class="form-control mb-2" type="file" id="formFile"><br>
-                <div class="text-center">
-                <button type="button" class="btn btn-success">บันทึก</button>
-                <button type="button" class="btn btn-danger">ยกเลิก</button>
-                </div><br>
+
+              <br>
               </div>
             </div>
           </div>

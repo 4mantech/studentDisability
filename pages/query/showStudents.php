@@ -4,7 +4,7 @@ $fac = $_GET['fac'];
 $dep = $_GET['dep'];
 $sql = "";
 if($fac == 0 && $dep ==0){
-  $sql = "SELECT u.id,u.userName,u.phone FROM users u 
+  $sql = "SELECT u.id,u.userName,u.phone,firstName,lastName FROM users u 
   INNER JOIN studentdetail s ON u.id = s.userId
   INNER JOIN departments d ON s.departmentId = d.id
   INNER JOIN faculties f ON f.id = d.facultyId
@@ -31,12 +31,9 @@ if(mysqli_num_rows($result)>=1){
   while($r = mysqli_fetch_array($result,MYSQLI_ASSOC)){
     $rows['studentsObj'][] =$r;
   }
-  
 }else{
   $rows['studentsObj'] =null;
-
 }
 print json_encode($rows,JSON_UNESCAPED_UNICODE);
-
 
 ?>

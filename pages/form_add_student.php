@@ -24,9 +24,15 @@
       <div id="profilepic" class=" card col-8 border mt-2 mb-5">
         <h4 class="mt-4">&nbsp;&nbsp; เพิ่มนักศึกษา</h4>
           <div class=" text-center mt-4">
-          <input type="hidden" id="id" value="<?php echo $_GET['id']; ?>"/>
-            <img class="border border-dark" src="img/students/potae.jpg" style="width:150px;height:auto;"><br></br>
-            <button type="file" class="btn btn-primary btn-sm">แก้ไขรูปภาพ</button>
+            <img class="border border-dark mb-4" src="img/students/profile.jpg" style="width:150px;height:auto;">
+            <div class="row">
+            <div class="col"></div>
+              <div class="col">
+            <input class="form-control mb-2" type="file" name="file" id="file">
+            </div>
+            <div class="col">
+            </div>
+            </div>
           </div> 
           <div class="card-body">
             <div class="row">
@@ -45,7 +51,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="row">
               <div class="col-2">
               </div>
@@ -69,7 +74,7 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>อายุ</label>
-                  <input type="text" name="age" id="age" class="form-control form-control-md" placeholder="อายุ" required/>
+                  <input type="text" name="age" id="age" class="form-control form-control-md" placeholder="อายุ" disabled/>
                 </div>
               </div>
               <div class="col-4">
@@ -120,13 +125,13 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>ประเภทความพิการ</label>
-                  <input type="text" name="nickname" id="disType" class="form-control form-control-md" placeholder="ประเภทความพิการ" required/>
+                  <input type="text" name="disType" id="disType" class="form-control form-control-md" placeholder="ประเภทความพิการ" required/>
                 </div>
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>เบอร์โทรศัพท์</label>
-                  <input type="text" name="age" id="telNum" class="form-control form-control-md" placeholder="เบอร์โทรศัพท์" required/>
+                  <input type="text" name="telNum" id="telNum" class="form-control form-control-md" placeholder="เบอร์โทรศัพท์" required/>
                 </div>
               </div>
             </div>
@@ -154,7 +159,7 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>คณะ</label>
-                  <select class="form-select" id="fac" aria-label="Default select example">
+                  <select class="form-select" name="fac" id="fac" aria-label="Default select example">
                     <option value="0" selected></option>
                     <option value="2">คณะวิศวกรรมศาสตร์</option>
                     <option value="3">คณะบริหารธุรกิจ</option>

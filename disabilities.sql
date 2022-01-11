@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2022 at 05:02 PM
+-- Generation Time: Jan 11, 2022 at 05:50 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -34,6 +34,15 @@ CREATE TABLE `articlesslide` (
   `startDate` date NOT NULL,
   `endDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `articlesslide`
+--
+
+INSERT INTO `articlesslide` (`id`, `imagePath`, `imageName`, `startDate`, `endDate`) VALUES
+(1, 'rm.png', 'HNY2022', '2022-01-01', '2022-01-15'),
+(2, 'news3.jpg', 'รับสมัคร นศ', '2022-01-01', '2022-01-10'),
+(3, 'eKob.jpg', 'up skill', '2022-01-12', '2022-01-15');
 
 -- --------------------------------------------------------
 
@@ -200,7 +209,9 @@ CREATE TABLE `studentdetail` (
 INSERT INTO `studentdetail` (`id`, `userId`, `departmentId`, `address`, `imageProfilePath`, `subDistrict`, `district`, `province`, `postalCode`, `disabilityId`, `disabilityType`, `yearOfEdu`) VALUES
 (1, 1, 21, 'ซอยนกเขา', 'potae.jpg', 'ในเมือง', 'เมือง', 'ชัยนาท', '17000', '1', 'กล้ามเนื้ออ่อนแรง', '4'),
 (2, 2, 4, 'ซอยนกเขาจุ๊กกรู่', 'potae.jpg', 'ชัยนาท', 'เมือง', 'ชัยนาท', '17000', '1161', 'เอ๋อ', '2'),
-(3, 3, 19, 'ซอยนกเข๊า', 'potae.jpg', 'ชัยนาท', 'เมือง', 'ชัยนนาทท', '17000', '112', 'แขนขาด', '1');
+(3, 3, 19, 'ซอยนกเข๊า', 'potae2.jpg', 'ชัยนาท', 'เมือง', 'ชัยนนาทท', '17000', '112', 'แขนขาด', '1'),
+(4, 4, 21, '238 ม.6', 'dae.jpg', 'ชัยนาท', 'เมือง', 'ชัยนาท', '17000', '-', 'ดี', '4'),
+(6, 6, 21, '126/2', '', 'ท้ายสำเภา', 'พระพรหม', 'นครศรีธรรมราช', '80000', '2', 'สมองเบลอ', '4');
 
 -- --------------------------------------------------------
 
@@ -230,7 +241,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `userName`, `password`, `firstName`, `lastName`, `role`, `phone`, `idCardNumber`, `idCodeAcdemy`, `birthDate`, `age`, `nickName`) VALUES
 (1, 'admin', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'อดิศักดิ์', 'มีทอง', 0, '1234', '1234', '', '2022-01-02', 24, 'แอดมินเต้'),
 (2, 'staff', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'เจ้าหน้าที่', '1', 1, '1234', '11', '', '2022-01-09', 1, 'เจ้าหน้าที่'),
-(3, 'student', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'นักศึกษา', 'พิการสมอง', 2, '0', '123', '', '0000-00-00', 0, 'นักศึกษาโปเต้');
+(3, 'student', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'นักศึกษา', 'พิการสมอง', 2, '0', '123', '', '0000-00-00', 0, 'นักศึกษาโปเต้'),
+(4, '116130462028-8', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'ธนพงศ์', 'เขียวโพธิ์', 2, '0970616129', '118990025****', '-', '1998-01-02', 24, 'เด้'),
+(6, '1161304620353', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'กันตพัฒน์', ' สุภาวีระวัฒน์', 2, '0987290448', '1759900******', '1161304620353', '1997-09-12', 0, 'เฟียส');
 
 --
 -- Indexes for dumped tables
@@ -283,7 +296,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `articlesslide`
 --
 ALTER TABLE `articlesslide`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `departments`
@@ -307,13 +320,13 @@ ALTER TABLE `faculties`
 -- AUTO_INCREMENT for table `studentdetail`
 --
 ALTER TABLE `studentdetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

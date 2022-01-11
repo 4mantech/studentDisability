@@ -50,6 +50,9 @@
               <li class="nav-item">
                 <a class="nav-link text-dark"  id="download" href="form_download_staff.php">ดาวน์โหลด</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark"  id="download" href="manageNews.php">จัดการข่าว</a>
+              </li>
               <?php
                 }
               ?>
