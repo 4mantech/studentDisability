@@ -11,6 +11,7 @@
   require('query/checkLogin.php');
   ?>
     <link rel="stylesheet" href="../assets/css/styleMain.css">
+    
 </head>
 <style>
   #newsslide {

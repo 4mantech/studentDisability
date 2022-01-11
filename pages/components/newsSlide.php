@@ -46,7 +46,7 @@
     type:'GET',
     url:"query/showNews.php",
     data: {
-      forMain:'yes',
+      forMain:'yes'
     },
     success:function(data){
       var new_data = JSON.parse(data).newsObj;
