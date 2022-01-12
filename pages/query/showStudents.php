@@ -8,6 +8,7 @@ if($fac == 0 && $dep ==0){
   INNER JOIN studentdetail s ON u.id = s.userId
   INNER JOIN departments d ON s.departmentId = d.id
   INNER JOIN faculties f ON f.id = d.facultyId
+  AND u.role = '2'
   ORDER BY u.id ASC";
 }elseif($fac != 0 && $dep ==0 ){
   $sql = "SELECT * FROM users u 
@@ -15,6 +16,7 @@ if($fac == 0 && $dep ==0){
   INNER JOIN departments d ON s.departmentId = d.id
   INNER JOIN faculties f ON f.id = d.facultyId
   WHERE f.id = '$fac'
+  AND u.role = '2'
   ORDER BY u.id ASC";
 }elseif($dep !=0){
   $sql = "SELECT * FROM users u 
@@ -22,9 +24,9 @@ if($fac == 0 && $dep ==0){
   INNER JOIN departments d ON s.departmentId = d.id
   INNER JOIN faculties f ON f.id = d.facultyId
   WHERE s.departmentId = '$dep'
+  AND u.role = '2'
   ORDER BY u.id ASC";
 }
-
 
 $result = mysqli_query($conn,$sql);
 if(mysqli_num_rows($result)>=1){

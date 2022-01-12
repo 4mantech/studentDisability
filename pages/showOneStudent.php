@@ -24,6 +24,7 @@
       <div id="profilepic" class=" card col-8 border mt-2 mb-5">
         <h4 class="mt-4">&nbsp;&nbsp; ข้อมูลนักศึกษา</h4>
           <div class=" text-center mt-4">
+            <form method="POST" enctype="multipart/form-data" id="studentInfo">
           <input type="hidden" id="id" value="<?php echo $_GET['id']; ?>"/>
             <img class="border border-dark" src="img/students/potae.jpg" style="width:150px;height:auto;"><br></br>
             <div class="row">
@@ -42,13 +43,13 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>ชื่อจริง</label>
-                  <input type="text" name="name" id="name" class="form-control form-control-md" placeholder="ชื่อจริง" required/>
+                  <input type="text" name="name" id="name" class="form-control form-control-md canEdit" placeholder="ชื่อจริง" disabled required/>
                 </div>
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>นามสกุล</label>
-                  <input type="text" name="surname" id="surname" class="form-control form-control-md" placeholder="นามสกุล" required/>
+                  <input type="text" name="surname" id="surname" class="form-control form-control-md canEdit" placeholder="นามสกุล" disabled required/>
                 </div>
               </div>
             </div>
@@ -59,13 +60,13 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>ชื่อเล่น</label>
-                  <input type="text" name="nickname" id="nickname" class="form-control form-control-md" placeholder="ชื่อเล่น" required/>
+                  <input type="text" name="nickname" id="nickname" class="form-control form-control-md canEdit" placeholder="ชื่อเล่น" disabled required/>
                 </div>
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>วัน/เดือน/ปีเกิด</label>
-                  <input type="date" name="birthday" id="birthday" class="form-control form-control-md" min="1995-01-01" max="2022-12-31" placeholder="วัน/เดือน/ปีเกิด" required/>
+                  <input type="date" name="birthday" id="birthday" class="form-control form-control-md canEdit" min="1995-01-01" max="2022-12-31" placeholder="วัน/เดือน/ปีเกิด" disabled required/>
                 </div>
               </div>
             </div>
@@ -76,13 +77,13 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>อายุ</label>
-                  <input type="text" name="age" id="age" class="form-control form-control-md" placeholder="อายุ" required/>
+                  <input type="text" name="age" id="age" class="form-control form-control-md" placeholder="อายุ" disabled required/>
                 </div>
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>ที่อยู่</label>
-                  <input type="text" name="address" id="address" class="form-control form-control-md" placeholder="ที่อยู่" required/>
+                  <input type="text" name="address" id="address" class="form-control form-control-md canEdit" placeholder="ที่อยู่" disabled required/>
                 </div>
               </div>
             </div>
@@ -93,13 +94,13 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>จังหวัด</label>
-                  <input type="text" name="Province" id="Province" class="form-control form-control-md" placeholder="จังหวัด" required/>
+                  <input type="text" name="Province" id="Province" class="form-control form-control-md canEdit" placeholder="จังหวัด" disabled required/>
                 </div>
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>เขต/อำเภอ</label>
-                  <input type="text" name="District" id="District" class="form-control form-control-md" placeholder="เขต/อำเภอ" required/>
+                  <input type="text" name="District" id="District" class="form-control form-control-md canEdit" placeholder="เขต/อำเภอ" disabled required/>
                 </div>
               </div>
             </div>
@@ -110,13 +111,13 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>รหัสไปรษณีย์</label>
-                  <input type="text" name="PostalCode" id="PostalCode" class="form-control form-control-md" placeholder="รหัสไปรษณีย์" required/>
+                  <input type="text" name="PostalCode" id="PostalCode" class="form-control form-control-md canEdit" placeholder="รหัสไปรษณีย์" disabled required/>
                 </div>
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>เลขบัตรประชาชน/คนพิการ</label>
-                  <input type="text" name="DisaCardId" id="DisaCardId" class="form-control form-control-md" placeholder="เลขบัตรประชาชน/คนพิการ" required/>
+                  <input type="text" name="DisaCardId" id="DisaCardId" class="form-control form-control-md canEdit" placeholder="เลขบัตรประชาชน/คนพิการ" disabled required/>
                 </div>
               </div>
             </div>
@@ -127,13 +128,13 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>ประเภทความพิการ</label>
-                  <input type="text" name="nickname" id="disType" class="form-control form-control-md" placeholder="ประเภทความพิการ" required/>
+                  <input type="text" name="nickname" id="disType" class="form-control form-control-md canEdit" placeholder="ประเภทความพิการ" disabled required/>
                 </div>
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>เบอร์โทรศัพท์</label>
-                  <input type="text" name="age" id="telNum" class="form-control form-control-md" placeholder="เบอร์โทรศัพท์" required/>
+                  <input type="text" name="age" id="telNum" class="form-control form-control-md canEdit" placeholder="เบอร์โทรศัพท์" disabled required/>
                 </div>
               </div>
             </div>
@@ -144,13 +145,13 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>ชั้นปีที่ศึกษา</label>
-                  <input type="text" name="EduYear" id="EduYear" class="form-control form-control-md" placeholder="ชั้นปีที่ศึกษา" required/>
+                  <input type="text" name="EduYear" id="EduYear" class="form-control form-control-md canEdit" placeholder="ชั้นปีที่ศึกษา" disabled required/>
                 </div>
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>รหัสนักศึกษา</label>
-                  <input type="text" name="StuId" id="StuId" class="form-control form-control-md" placeholder="รหัสนักศึกษา" required/>
+                  <input type="text" name="StuId" id="StuId" class="form-control form-control-md canEdit" placeholder="รหัสนักศึกษา" disabled required/>
                 </div>
               </div>
             </div>
@@ -161,7 +162,7 @@
                 <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>คณะ</label>
-                  <select class="form-select" id="fac" aria-label="Default select example">
+                  <select class="form-select canEdit" id="fac" aria-label="Default select example " disabled>
                     <option value="2">คณะวิศวกรรมศาสตร์</option>
                     <option value="3">คณะบริหารธุรกิจ</option>
                     <option value="4">คณะเทคโนโลยีคหกรรมศาสตร์</option>
@@ -179,8 +180,9 @@
               </div>
               <div class="col-4">
               <label>สาขา</label>
-                <select class="form-select" id="dep" aria-label="Default select example">
+                <select class="form-select canEdit" id="dep" aria-label="Default select example" disabled>
             </select>
+            </form>
               </div>
             </div>
             
@@ -188,8 +190,8 @@
               <div class="col-2"></div>
                 <div class="col-8 text-center mt-3">
                   <a href="showStudentsInfo.php" class="btn btn-danger">ย้อนกลับ</a>
-                  <button type="button" class="btn btn-warning">แก้ไข</button>
-                  <a href="form_download_staff-+.php"  type="button" class="btn btn-info">ตรวจสอบเอกสาร</a>
+                  <button type="button" value="edit" id="edit" class="btn btn-warning"> แก้ไข </button>
+                  <a href="form_download_staff.php"  type="button" class="btn btn-info">ตรวจสอบเอกสาร</a>
                 </div>
               </div>   
             </div>

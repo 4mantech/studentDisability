@@ -24,6 +24,7 @@ const ShowNews = () => {
     },
   });
 };
+
 $(document).ready(function(){
  ShowNews();
 });

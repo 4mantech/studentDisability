@@ -52,7 +52,7 @@ var myParam = location.search.split('status=')[1]
 if(myParam ==0){
   SoloAlert.alert({
   title:"ผิดพื๊ดดด",
-  body:"ชื่อผู้ใช้หรือรหัสผ่านไม่ถอกต้อง",
+  body:"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง",
   icon: "error",
   useTransparency: true,
 });

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2022 at 05:50 PM
+-- Generation Time: Jan 12, 2022 at 05:53 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -243,7 +243,8 @@ INSERT INTO `users` (`id`, `userName`, `password`, `firstName`, `lastName`, `rol
 (2, 'staff', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'เจ้าหน้าที่', '1', 1, '1234', '11', '', '2022-01-09', 1, 'เจ้าหน้าที่'),
 (3, 'student', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'นักศึกษา', 'พิการสมอง', 2, '0', '123', '', '0000-00-00', 0, 'นักศึกษาโปเต้'),
 (4, '116130462028-8', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'ธนพงศ์', 'เขียวโพธิ์', 2, '0970616129', '118990025****', '-', '1998-01-02', 24, 'เด้'),
-(6, '1161304620353', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'กันตพัฒน์', ' สุภาวีระวัฒน์', 2, '0987290448', '1759900******', '1161304620353', '1997-09-12', 0, 'เฟียส');
+(6, '1161304620353', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'กันตพัฒน์', ' สุภาวีระวัฒน์', 2, '0987290448', '1759900******', '1161304620353', '1997-09-12', 0, 'เฟียส'),
+(18, '1330', '0e877f88b5e520af08c30409af0fdd9340fc16c7f5366351f2da88264eff307b', '4man', 'tech', 1, '6969', '1169', '1330', '1997-09-12', 0, 'Venice');
 
 --
 -- Indexes for dumped tables
@@ -326,7 +327,7 @@ ALTER TABLE `studentdetail`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

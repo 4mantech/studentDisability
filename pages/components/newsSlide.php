@@ -67,7 +67,7 @@
         if(index==0){
           newBtn += `class="active" aria-current="true" `
         }
-         newBtn += `aria-label="Slide ${++count}"></button>`
+         newBtn += `aria-label="Slide ${count}"></button>`
          count+=1
       });
       $("#imgNews").html(newImg);
