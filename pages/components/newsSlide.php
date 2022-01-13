@@ -54,7 +54,6 @@
       var newBtn = ""
       let count =0
  
-
       new_data.forEach((element,index) => {
         newImg += ` <div class="carousel-item `
         if(index==0){

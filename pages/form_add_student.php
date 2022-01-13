@@ -81,43 +81,57 @@
             <div class="col-4">
               <div class=" text-start form-outline mb-3 ">
                 <label>ที่อยู่</label>
-                <input type="text" name="address" id="address" class="form-control form-control-md" placeholder="ที่อยู่" required />
+                <textarea type="text" name="address" id="address" class="form-control form-control-md" placeholder="ที่อยู่" required></textarea>
               </div>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-2">
-            </div>
-            <div class="col-4">
-              <div class=" text-start form-outline mb-3 ">
-                <label>จังหวัด</label>
-                <input type="text" name="Province" id="Province" class="form-control form-control-md" placeholder="จังหวัด" required />
+              <div class="col-2">
               </div>
-            </div>
-            <div class="col-4">
+                <div class="col-4">
+                <div class=" text-start form-outline mb-3">
+                  <label>ตำบล</label>
+                  <input type="text" name="subdistrict" id="subdistrict" class="form-control form-control-md" placeholder="ตำบล" required/>
+                </div>
+              </div>
+              <div class="col-4">
               <div class=" text-start form-outline mb-3 ">
                 <label>เขต/อำเภอ</label>
                 <input type="text" name="District" id="District" class="form-control form-control-md" placeholder="เขต/อำเภอ" required />
               </div>
             </div>
-          </div>
+            </div>
 
           <div class="row">
             <div class="col-2">
             </div>
-            <div class="col-4">
+            
+            <div class="col-2">
+              <div class=" text-start form-outline mb-3 ">
+                <label>จังหวัด</label>
+                <input type="text" name="Province" id="Province" class="form-control form-control-md" placeholder="จังหวัด" required />
+              </div>
+            </div>
+            <div class="col-2">
               <div class=" text-start form-outline mb-3 ">
                 <label>รหัสไปรษณีย์</label>
                 <input type="text" name="PostalCode" id="PostalCode" class="form-control form-control-md" placeholder="รหัสไปรษณีย์" required />
               </div>
-            </div>
+            </div> 
             <div class="col-4">
               <div class=" text-start form-outline mb-3 ">
                 <label>เลขบัตรประชาชน/คนพิการ</label>
                 <input type="text" name="DisaCardId" id="DisaCardId" class="form-control form-control-md" placeholder="เลขบัตรประชาชน/คนพิการ" required />
               </div>
             </div>
+          </div>
+
+          <div class="row">
+            <div class="col-2">
+            </div>
+            
+            
           </div>
 
           <div class="row">

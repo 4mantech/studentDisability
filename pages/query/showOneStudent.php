@@ -11,7 +11,8 @@ WHERE u.id = '$id'";
 
 $result = mysqli_query($conn,$sql);
 if(mysqli_num_rows($result)==1){
-  $row['studentObj'][] = mysqli_fetch_array($result,MYSQLI_ASSOC);
+  $r = mysqli_fetch_array($result,MYSQLI_ASSOC);
+  $row['studentObj'][] = $r;
 }else{
   $row['studentObj'] =null;
 }
