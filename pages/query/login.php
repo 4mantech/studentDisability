@@ -15,8 +15,9 @@ $result_user = mysqli_stmt_get_result($stmt);
 if($result_user->num_rows ==1 ){
   session_start();
   $row_user = mysqli_fetch_array($result_user,MYSQLI_ASSOC);
-  mysqli_close($conn);
+
   $_SESSION['login_id'] = $row_user['id'];
+  $id =  $row_user['id'];
   if($row_user['role'] == 0){
     $_SESSION['role'] = "admin";
     $_SESSION['statusLogin'] = 1;
@@ -28,6 +29,14 @@ if($result_user->num_rows ==1 ){
   }elseif($row_user['role'] == 2){
     $_SESSION['role'] = "student";
     $_SESSION['statusLogin'] = 1;
+    $checkFile = "SELECT * FROM `documents` WHERE userId = '$id'";
+    $resultCheck = mysqli_query($conn,$checkFile);
+    echo mysqli_num_rows($resultCheck);
+    if(mysqli_num_rows($resultCheck)==3){
+      $_SESSION['notice'] = "0";
+    }else{
+      $_SESSION['notice'] = "1";
+    }
     header("Location:../main.php");
   }else{
     $_SESSION['statusLogin'] = 0;
@@ -37,6 +46,6 @@ if($result_user->num_rows ==1 ){
   $_SESSION['statusLogin'] = 0;
   header("Location:../index.php?status=0");
 }
-
+mysqli_close($conn);
 
 ?>

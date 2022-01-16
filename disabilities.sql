@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2022 at 05:49 PM
+-- Generation Time: Jan 16, 2022 at 05:51 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -40,9 +40,9 @@ CREATE TABLE `articlesslide` (
 --
 
 INSERT INTO `articlesslide` (`id`, `imagePath`, `imageName`, `startDate`, `endDate`) VALUES
-(1, 'rm.png', 'HNY2022', '2022-01-01', '2022-01-15'),
-(2, 'news3.jpg', 'รับสมัคร นศ', '2022-01-01', '2022-01-10'),
-(3, 'eKob.jpg', 'up skill', '2022-01-12', '2022-01-15');
+(1, 'rm.png', 'HNY2022', '2022-01-01', '2022-01-31'),
+(2, 'news3.jpg', 'รับสมัคร นศ', '2022-01-01', '2022-01-31'),
+(3, 'eKob.jpg', 'up skill', '2022-01-12', '2022-01-31');
 
 -- --------------------------------------------------------
 
@@ -152,6 +152,15 @@ CREATE TABLE `documents` (
   `documentType` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `documents`
+--
+
+INSERT INTO `documents` (`id`, `userId`, `documentPath`, `documentName`, `documentType`) VALUES
+(2, 4, '1161304620288-PaymentStatement.pdf', 'PaymentStatement', 'pdf'),
+(3, 4, '1161304620288-bankPassbook.jpg', 'bankPassbook', 'jpg'),
+(4, 4, '1161304620288-otherDoc.pdf', 'otherDocument', 'pdf');
+
 -- --------------------------------------------------------
 
 --
@@ -179,7 +188,12 @@ INSERT INTO `faculties` (`id`, `facultyName`) VALUES
 (10, 'คณะเทคโนโลยีสื่อสารมวลชน'),
 (11, 'คณะศิลปศาสตร์'),
 (12, 'คณะการแพทย์บูรณาการ'),
-(13, 'คณะพยาบาลศาสตร์');
+(13, 'คณะพยาบาลศาสตร์'),
+(14, 'คณะหมูกรอบ'),
+(15, 'เวนิส'),
+(16, 'เวนิส2'),
+(17, 'คณะเวนิส'),
+(18, 'เทสชื่อซ้ำ');
 
 -- --------------------------------------------------------
 
@@ -209,9 +223,10 @@ CREATE TABLE `studentdetail` (
 INSERT INTO `studentdetail` (`id`, `userId`, `departmentId`, `address`, `imageProfilePath`, `subDistrict`, `district`, `province`, `postalCode`, `disabilityId`, `disabilityType`, `yearOfEdu`) VALUES
 (1, 1, 21, 'ซอยนกเขา', 'potae.jpg', 'ในเมือง', 'เมือง', 'ชัยนาท', '17000', '1', 'กล้ามเนื้ออ่อนแรง', '4'),
 (2, 2, 4, 'ซอยนกเขาจุ๊กกรู่', 'potae.jpg', 'ชัยนาท', 'เมือง', 'ชัยนาท', '17000', '1161', 'เอ๋อ', '2'),
-(3, 3, 77, 'ซอยนกเข๊า', 'potae2.jpg', '', 'เมือง', 'ชัยนนาทท', '17000', '112', '', '1'),
-(4, 4, 21, '238 ม.6', 'dae.jpg', 'ชัยนาทืืืทหฟกฟหกฟหก', 'เมือง', 'ชัยนาท', '17000', '1236', '', '4'),
-(6, 6, 21, '126/2', '', 'เฟียส', 'พระพรหม', 'นครศรีธรรมราช', '80000', '3123123', 'ดีสุดๆ', '4');
+(3, 3, 77, 'ซอยนกเข๊า', 'student.jpg', '', 'เมือง', 'ชัยนนาทท', '17000', '112', '', '1'),
+(4, 4, 21, '238 ม.6', '116130462028-8.jpg', 'ชัยนาทืืืทหฟกฟหกฟหก', 'เมือง', 'ชัยนาท', '17000', '1236', '', '4'),
+(6, 6, 21, '126/2', 'kantapat.jpg', 'เฟียส', 'พระพรหม', 'นครศรีธรรมราช', '80000', '3123123', 'ดีสุดๆ', '4'),
+(7, 19, 82, 'กฟหกฟหก', 'กฟหกฟหก.jpg', 'ท้ายสำเภา', 'กฟหกฟหกฟห', 'กฟหกฟห', 'กฟหกฟห', 'กฟหก', 'ฟหกฟห', 'กฟหกฟห');
 
 -- --------------------------------------------------------
 
@@ -242,8 +257,9 @@ INSERT INTO `users` (`id`, `userName`, `password`, `firstName`, `lastName`, `rol
 (1, 'admin', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'อดิศักดิ์', 'มีทอง', 0, '1234', '1234', '', '2022-01-02', 24, 'แอดมินเต้'),
 (2, 'staff', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'เจ้าหน้าที่', '1', 1, '1234', '11', '', '2022-01-09', 1, 'เจ้าหน้าที่'),
 (3, 'student', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'นักศึกษา', 'พิการสมอง', 2, '0', '112', 'student', '2011-11-10', 10, 'นักศึกษาโปเต้'),
-(4, '116130462028-8', 'a914751cf3cc0063a8816be930b3b9acb04cc6cdee6f96fed900d3b864ad13ba', 'ธนพงศ์', 'เขียวโพธิ์', 2, '097', '1236', '116130462028-8', '1998-01-02', 24, 'เด้'),
-(6, '1161304620353', '2e4bf9414ef9a91b53e5443e0ed587fc5a38cb73d971fb4c332b285889e39172', 'กันตพัฒน์', ' สุภาวีระวัฒน์', 2, '0987290448', '3123123', '1161304620353', '1997-09-12', 24, 'เฟียส');
+(4, '116130462028-8', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'ธนพงศ์', 'เขียวโพธิ์', 2, '097', '1236', '116130462028-8', '1998-01-02', 24, 'เด้'),
+(6, '1161304620353', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'กันตพัฒน์', ' สุภาวีระวัฒน์', 2, '0987290448', '3123123', '1161304620353', '1997-09-12', 24, 'เฟียส'),
+(19, 'กฟหกฟหก', 'e15c6b4e33ef32148ad553891d32f4e8de1987de7efd978d3d3cc55feff554f0', 'ทดสอบ', 'เพิ่มรูป', 2, 'กฟหกฟห', 'กฟหก', 'กฟหกฟหก', '2022-01-04', 0, 'กฟหกฟหกฟหกฟห');
 
 --
 -- Indexes for dumped tables
@@ -266,7 +282,8 @@ ALTER TABLE `departments`
 -- Indexes for table `documents`
 --
 ALTER TABLE `documents`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `doc and user` (`userId`);
 
 --
 -- Indexes for table `faculties`
@@ -287,7 +304,8 @@ ALTER TABLE `studentdetail`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `userName` (`userName`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -309,25 +327,25 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `faculties`
 --
 ALTER TABLE `faculties`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `studentdetail`
 --
 ALTER TABLE `studentdetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
@@ -338,6 +356,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `departments`
   ADD CONSTRAINT `fac_id` FOREIGN KEY (`facultyId`) REFERENCES `faculties` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `documents`
+--
+ALTER TABLE `documents`
+  ADD CONSTRAINT `doc and user` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `studentdetail`

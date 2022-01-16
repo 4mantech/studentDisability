@@ -46,7 +46,24 @@ const callAjax = () =>{
     contentType: false,
     processData: false,
     success: function(data) {
-        console.log(data)
+      if (data == "false") {
+        SoloAlert.alert({
+          title: "ผิดพลาด",
+          body: "ไม่สามารถเพิ่มนักศึกษาได้",
+          icon: "error",
+          useTransparency: true,
+        });
+      } else {
+        SoloAlert.alert({
+          title: "สำเร็จ",
+          body: "เพิ่มนักศึกษาเรียบร้อยแล้ว",
+          icon: "success",
+          useTransparency: true,
+          onOk: () => {
+            window.location.href = "showStudentsInfo.php";
+          },
+        });
+      }
     }
 });
 }
@@ -63,6 +80,18 @@ $(document).ready(function () {
     console.log("submit");
     callAjax();
   })
+  $("#file").change(function(){
+    preview_image(event)
+  })
+  function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('profileimg');
+      output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
 
   $("#birthday").change(function () {
     const dob = new Date($("#birthday").val());

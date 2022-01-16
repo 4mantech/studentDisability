@@ -25,6 +25,7 @@ const ShowNews = () => {
   });
 };
 
+
 $(document).ready(function(){
  ShowNews();
 });
@@ -37,5 +38,4 @@ SoloAlert.confirm({
   onOk : ()=>{window.location.href = `query/deleteNews.php?id=${id}`},
   onCancel: ()=>{},
 });
-
 }

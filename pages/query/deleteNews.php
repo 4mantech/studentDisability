@@ -9,6 +9,5 @@ if(mysqli_query($conn,$sql)){
 }else{
   header("Location:../manageNews.php");
 }
-
 mysqli_close($conn);
 ?>

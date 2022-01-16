@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $("#birthday").change(function () {
       const dob = new Date($("#birthday").val());
       var month_diff = Date.now() - dob.getTime();

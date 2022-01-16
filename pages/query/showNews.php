@@ -3,7 +3,7 @@ require('connect.php');
 $forMain =$_GET['forMain'];
 $sql ="";
 if($forMain == 'yes'){
-  $sql ="SELECT * FROM `articlesslide` WHERE startDate <= NOW() AND endDate >= NOW() ORDER BY `articlesslide`.`startDate` ASC";
+  $sql ="SELECT * FROM `articlesslide` WHERE startDate <= CURRENT_DATE() AND endDate >= CURRENT_DATE() ORDER BY `articlesslide`.`startDate` ASC;";
 }else{
   $sql = "SELECT * FROM articlesslide ORDER BY startDate ASC";
 }
@@ -18,6 +18,4 @@ if(mysqli_num_rows($result)>=1){
 }
 print json_encode($rows,JSON_UNESCAPED_UNICODE);
 mysqli_close($conn);
-
-
 ?>

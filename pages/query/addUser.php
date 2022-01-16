@@ -39,3 +39,5 @@ if (mysqli_num_rows($resultCheck) >= 1) {
   }
 }
 mysqli_close($conn);
+
+?>

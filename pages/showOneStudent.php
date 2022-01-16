@@ -26,7 +26,7 @@
           <div class=" text-center mt-4">
             <form method="POST" enctype="multipart/form-data" id="studentInfo">
           <input type="hidden" name="id" id="id" value="<?php echo $_GET['id'];?>"/>
-            <img class="border border-dark" src="img/students/potae.jpg" style="width:150px;height:auto;"><br></br>
+            <img class="border border-dark" id="profileimg" src="" style="width:150px;height:auto;"><br></br>
             <div class="row">
             <div class="col"></div>
               <div class="col">

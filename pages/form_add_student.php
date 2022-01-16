@@ -25,7 +25,7 @@
       <div id="profilepic" class=" card col-8 border mt-2 mb-5">
         <h4 class="mt-4">&nbsp;&nbsp; เพิ่มนักศึกษา</h4>
         <div class=" text-center mt-4">
-          <img class="border border-dark mb-4" src="img/students/profile.jpg" style="width:150px;height:auto;">
+          <img class="border border-dark mb-4" name="file" id="profileimg" src="img/students/profile.jpg" style="width:150px;height:auto;">
           <div class="row">
               <div class="col"></div>
             <div class="col">

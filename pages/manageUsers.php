@@ -40,7 +40,6 @@
   <tbody id="tbody">
   </tbody>
 </table>
-
       </div>
     </div>
   </div>

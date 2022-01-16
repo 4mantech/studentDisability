@@ -35,37 +35,46 @@
               <li id="nav_main" class="nav-item">
                 <a class="nav-link text-dark" id="main" href="main.php">หน้าหลัก</a>
               </li>
-              <?php
-                if($s_login_role == "แอดมิน" || $s_login_role == "เจ้าหน้าที่"){
-              ?>
-              <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" id="student_information" href="showStudentsInfo.php">ข้อมูลนักศึกษาพิการ</a>
+              <li id="nav_main" class="nav-item">
+                <a class="nav-link text-dark" id="editInfo" href="#">แก้ไขข้อมูลส่วนตัว</a>
               </li>
+              <?php
+                if($s_login_role == "แอดมิน"){
+              ?>
+            
               <li class="nav-item">
                 <a class="nav-link text-dark"  id="manage" href="manageUsers.php">จัดการข้อมูลผู้ใช้</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="upload" href="form_upload_staff.php">อัพโหลด</a>
+                <a class="nav-link text-dark"  id="manageFac" href="manageFac.php">จัดการคณะ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="download" href="form_download_staff.php">ดาวน์โหลด</a>
+                <a class="nav-link text-dark"  id="manageDep" href="#">จัดการสาขา</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="download" href="manageNews.php">จัดการข่าว</a>
+                <a class="nav-link text-dark"  id="manageNews" href="manageNews.php">จัดการข่าว</a>
               </li>
               <?php
                 }
+                if($s_login_role == "เจ้าหน้าที่"){
               ?>
+             <li class="nav-item">
+                <a class="nav-link text-dark" aria-current="page" id="student_information" href="showStudentsInfo.php">ข้อมูลนักศึกษาพิการ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark"  id="upload" href="form_upload_staff.php">อัพโหลดเอกสาร</a>
+              </li>
               <?php
+                }
                 if($s_login_role == "นักศึกษา"){
               ?>
-              <li class="nav-item">
-                <a class="nav-link text-dark"  id="upload" href="form_upload_student.php">อัพโหลด</a>
+                 <li class="nav-item">
+                <a class="nav-link text-dark"  id="upload" href="form_upload_student.php">อัพโหลดเอกสาร</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="download" href="form_download_student.php">ดาวน์โหลด</a>
+                <a class="nav-link text-dark"  id="download" href="form_download_student.php">ดาวน์โหลดเอกสาร</a>
               </li>
-              <?php
+              <?php 
                 }
               ?>
             </ul>

@@ -1,7 +1,6 @@
 const editStudent = () => {
   var form = $("#studentInfo")[0];
   var data = new FormData(form);
-  console.log(form);
   $.ajax({
     type: "POST",
     enctype: "multipart/form-data",
@@ -63,11 +62,9 @@ $("#edit").click(function () {
     $(".canEdit").prop("disabled", false);
     $("#edit").val("editing");
     $("#edit").text("บันทึก");
-    console.log("กำลังแก้");
   } else {
     $("#edit").val("edit");
     editStudent();
-    console.log("บันทึก");
   }
 });
 
@@ -86,7 +83,7 @@ $(document).ready(function () {
     },
     success: function (data) {
       var new_data = JSON.parse(data).studentObj;
-
+      console.log(new_data);
       $("#name").val(new_data[0]["firstName"]);
       $("#surname").val(new_data[0]["lastName"]);
       $("#nickname").val(new_data[0]["nickName"]);
@@ -102,6 +99,13 @@ $(document).ready(function () {
       $("#EduYear").val(new_data[0]["yearOfEdu"]);
       $("#StuId").val(new_data[0]["userName"]);
       $("#fac").val(new_data[0]["facultyId"]);
+      $("#profileimg").val(new_data[0]["imageProfilePath"]);
+      let src1 = "../pages/img/students/"+new_data[0]["imageProfilePath"];
+      $("#profileimg").attr("src", src1);
+      
+
+      
+
 
       var fac = $("#fac").val();
       dep = new_data[0]["departmentId"];

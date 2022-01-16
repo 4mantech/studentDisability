@@ -26,7 +26,7 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card shadow-2-strong animate__animated animate__hinge" id="card" style="border-radius: 1rem; margin-top: 10%; opacity:88%">
+        <div class="card shadow-2-strong" id="card" style="border-radius: 1rem; margin-top: 10%; opacity:88%">
         <!-- <div class="card shadow-2-strong" id="card" style="border-radius: 1rem; margin-top: 10%; opacity:88%"> -->
           <div class="card-body p-5 text-center">
           <img src="img/logo.png" class="animate__animated animate__slideInDown" style="width:150px; height:150px;">
@@ -47,12 +47,17 @@
       </div>
     </div>
   </div>
+
+
+
+
 </body>
 <script>
+
 var myParam = location.search.split('status=')[1]
 if(myParam ==0){
   SoloAlert.alert({
-  title:"ผิดพื๊ดดด",
+  title:"ผิดพลาด",
   body:"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง",
   icon: "error",
   useTransparency: true,

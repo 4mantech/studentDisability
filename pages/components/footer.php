@@ -4,7 +4,7 @@
     margin-top:0px;
   }
 </style>
-<footer id="footer" class="footer mt-4 text-center text-lg-start fixed-bottom">
+<footer id="footer" class="footer mt-5 text-center text-lg-start fixed-bottom">
   <div id="bg" style="background-color: rgba(133, 168, 221,1);">
   <div class="p-2">
   <h5>ศูนย์พัฒนานักศึกษามหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี</h5>
