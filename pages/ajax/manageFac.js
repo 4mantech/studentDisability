@@ -15,6 +15,7 @@ const showAllFac = () => {
         <th scope="row" class="text-center">${++index}</th>
           <td>${element.facultyName}</td>
           <td class="text-center">
+          <button id="manageDep" type="button" class="btn btn-primary btn-m" onclick="window.location.href='manageDep.php?facId=${element.id}'">จัดการสาขา</button>
           <button id="showModalEditFac" type="button" class="btn btn-warning btn-m" onclick="showModalEditFac(${
             element.id
           })">แก้ไข</button>

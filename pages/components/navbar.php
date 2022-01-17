@@ -49,9 +49,6 @@
                 <a class="nav-link text-dark"  id="manageFac" href="manageFac.php">จัดการคณะ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="manageDep" href="#">จัดการสาขา</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link text-dark"  id="manageNews" href="manageNews.php">จัดการข่าว</a>
               </li>
               <?php

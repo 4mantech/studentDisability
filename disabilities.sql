@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2022 at 05:51 PM
+-- Generation Time: Jan 17, 2022 at 05:13 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -136,7 +136,10 @@ INSERT INTO `departments` (`id`, `facultyId`, `departmentName`) VALUES
 (86, 12, 'การแพทย์แผนไทยประยุกต์บัณฑิต'),
 (87, 12, 'สาขาวิชาสุขภาพและความงาม\r\n'),
 (88, 12, 'สาขาวิชานวัตกรรมผลิตภัณฑ์สุขภาพ'),
-(89, 12, 'สาขาวิชาการแพทย์ทางเลือก (นานาชาติ)');
+(89, 12, 'สาขาวิชาการแพทย์ทางเลือก (นานาชาติ)'),
+(118, 15, 'Green'),
+(119, 15, 'โนว่าหน้าหีจัง'),
+(132, 16, 'Green');
 
 -- --------------------------------------------------------
 
@@ -321,7 +324,7 @@ ALTER TABLE `articlesslide`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- AUTO_INCREMENT for table `documents`
