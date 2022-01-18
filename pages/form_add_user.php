@@ -95,7 +95,7 @@
                 <div class="col-2">
                 </div>
                 <div class="col-8 text-center mt-4 mb-4">
-                  <a href="showStudentsInfo.php" class="btn btn-danger">ย้อนกลับ</a>
+                  <a href="manageUsers.php" class=" btn btn-danger">ย้อนกลับ</a>
                   <button id="submit" type="button" class="btn btn-success">บันทึก</button>
                 </div>
               </div>

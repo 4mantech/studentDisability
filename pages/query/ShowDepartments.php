@@ -2,6 +2,7 @@
 require('connect.php');
 $facId = $_GET['fac'];
 $sql = "";
+$rows;
 if($facId == 0){
   $sql = "SELECT * FROM departments";
 }else{
@@ -12,8 +13,11 @@ if(mysqli_num_rows($result)>=1){
   while($r = mysqli_fetch_array($result,MYSQLI_ASSOC)){
     $rows['depObj'][] =$r;
   }
-  print json_encode($rows,JSON_UNESCAPED_UNICODE);
+  
+}else{
+  $rows['depObj'] = null;
 }
+print json_encode($rows,JSON_UNESCAPED_UNICODE);
 mysqli_close($conn);
 
 ?>

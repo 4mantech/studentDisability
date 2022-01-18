@@ -54,7 +54,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <h1>กรุณา Upload เอกสารให้ครบถ้วน น น น น น</h1>
+      <h1>กรุณา Upload เอกสารให้ครบถ้วน</h1>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-bs-dismiss="modal">รับทราบ</button>

@@ -15,11 +15,13 @@ const showAllFac = () => {
         <th scope="row" class="text-center">${++index}</th>
           <td>${element.facultyName}</td>
           <td class="text-center">
-          <button id="manageDep" type="button" class="btn btn-primary btn-m" onclick="window.location.href='manageDep.php?facId=${element.id}'">จัดการสาขา</button>
+          <button id="manageDep" type="button" class="btn btn-primary btn-m" onclick="window.location.href='manageDep.php?facId=${
+            element.id
+          }'">จัดการสาขา</button>
           <button id="showModalEditFac" type="button" class="btn btn-warning btn-m" onclick="showModalEditFac(${
             element.id
           })">แก้ไข</button>
-          <button id="deleteFac" type="button" class="btn btn-danger btn-m" onclick="deleteFac(${
+          <button type="button" class="btn btn-danger btn-m" onclick="deleteFac(${
             element.id
           })">ลบ</button></td>
       </tr>
@@ -33,17 +35,7 @@ const showAllFac = () => {
     },
   });
 };
-const deleteFac = (id) => {
-  SoloAlert.confirm({
-    title: "ยืนยัน",
-    body: "คุณต้องการลบข้อมูลใช่หรือไม่ ?",
-    useTransparency: true,
-    onOk: () => {
-      window.location.href = `query/deleteFac.php?id=${id}`;
-    },
-    onCancel: () => {},
-  });
-};
+
 const editFac = (id, name) => {
   $.ajax({
     type: "POST",
@@ -91,6 +83,45 @@ const showModalEditFac = (id) => {
       $("#facId").val(facId);
       $("#editFacModal").modal("show");
     },
+  });
+};
+
+const deleteFac = (facId) => {
+  SoloAlert.confirm({
+    title: "ยืนยัน",
+    body: "คุณต้องการที่จะลบคณะนี้ใช่หรือไม่?",
+    useTransparency: true,
+    onOk: () => {
+      $.ajax({
+        type: "POST",
+        url: "query/deleteFac.php",
+        data: {
+          facId: facId,
+        },
+        success: function (data) {
+          console.log(data);
+          if (data == "false") {
+            SoloAlert.alert({
+              title: "ผิดพลาด",
+              body: "ไม่สามารถลบคณะได้",
+              icon: "error",
+              useTransparency: true,
+            });
+          } else {
+            SoloAlert.alert({
+              title: "สำเร็จ",
+              body: "ลบคณะสำเร็จ",
+              icon: "success",
+              useTransparency: true,
+              onOk: () => {
+                window.location.reload();
+              },
+            });
+          }
+        },
+      });
+    },
+    onCancel: () => {},
   });
 };
 

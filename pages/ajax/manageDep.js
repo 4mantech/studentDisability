@@ -7,59 +7,98 @@ const showDep = (facId) => {
     },
     success: function (data) {
       const new_data = JSON.parse(data).depObj;
-      console.log(new_data);
-      new_data.forEach((element, index) => {
-        console.log(name);
-        $("#tbody").append(`
-          <tr>
-          <th scope="row" class="text-center">${++index}</th>
-            <td>${element.departmentName}</td>
-            <td class="text-center">
-            <button id="showModalEditFac" type="button" class="btn btn-warning btn-m" onclick="showModalEditFac(${facId},${
-          element.id
-        })">แก้ไข</button>
-            <button id="deleteFac" type="button" class="btn btn-danger btn-m" onclick="deleteFac(${
-              element.id
-            })">ลบ</button></td>
-        </tr>
-          `);
-      });
-
-      table = $("#tableDep").DataTable();
+      if(new_data != null){
+        new_data.forEach((element, index) => {
+          console.log(name);
+          $("#tbody").append(`
+            <tr>
+            <th scope="row" class="text-center">${++index}</th>
+              <td>${element.departmentName}</td>
+              <td class="text-center">
+              <button id="showModalEditFac" type="button" class="btn btn-warning btn-m" 
+              onclick="showModalEditFac(${facId},${element.id})">แก้ไข</button>
+              <button type="button" class="btn btn-danger btn-m" 
+              onclick="deleteDep(${element.id})">ลบ</button></td>
+          </tr>
+            `);
+        });
+        table = $("#tableDep").DataTable();
+      }
     },
   });
 };
 
 var depName = $("#depName").val();
 
-const addDep = () => {
-  var form = $("#formAddDep")[0];
-  var data = new FormData(form);
+const deleteDep = (depId) => {
+      SoloAlert.confirm({
+  title:"ยืนยัน",
+  body:"คุณต้องการที่จะลบสาขานี้ใช่หรือไม่?",
+  useTransparency: true,
+  onOk : ()=>{ 
+    $.ajax({
+    type: "POST",
+    url: "query/deleteDep.php",
+    data: {
+      depId : depId,
+    },
+    success: function (data) {
+
+      console.log(data);
+      if(data == "false"){
+          SoloAlert.alert({
+            title:"ผิดพลาด",
+            body:"ไม่สามารถลบสาขาได้",
+            icon: "error",
+            useTransparency: true,
+          });
+        }else{
+          SoloAlert.alert({
+            title:"สำเร็จ",
+            body:"ลบสาขาสำเร็จ",
+            icon: "success",
+            useTransparency: true,
+            onOk : ()=>{window.location.reload();}
+          });
+        }
+    },
+  });},
+  onCancel: ()=>{},
+});
+
+ 
+
+}
+
+const addDep = (facId,depName) => {
   $.ajax({
     type: "POST",
-    enctype: "multipart/form-data",
     url: "query/addDep.php",
-    data: data,
-    processData: false,
-    contentType: false,
-    cache: false,
+    data: {
+      facId : facId,
+      depName : depName,
+    },
     success: function (data) {
-      // if(data == "false"){
-      //     SoloAlert.alert({
-      //       title:"ผิดพลาด",
-      //       body:"ไม่ได้แน่ๆ",
-      //       icon: "error",
-      //       useTransparency: true,
-      //     });
-      //   }else{
-      //     SoloAlert.alert({
-      //       title:"สำเร็จ",
-      //       body:"ได้แล้ว",
-      //       icon: "success",
-      //       useTransparency: true,
-      //       onOk : ()=>{window.location.reload();}
-      //     });
-      //   }
+      const newData =  JSON.parse(data).status
+      console.log(newData);
+      if(newData == "department is duplicate"){
+          SoloAlert.alert({
+            title:"ผิดพลาด",
+            body:"ไม่สามารถเพิ่มสาขาได้",
+            icon: "error",
+            useTransparency: true,
+          });
+          $("#addDepModal").modal("hide")
+          $("#depName").val('')
+        }else{
+          SoloAlert.alert({
+            title:"สำเร็จ",
+            body:"เพิ่มสาขาสำเร็จ",
+            icon: "success",
+            useTransparency: true,
+            onOk : ()=>{window.location.reload();}
+          });
+        }
     },
   });
 };
@@ -128,6 +167,9 @@ $("#confirmEdit").click(function () {
 $("#closeModalEdit").click(function () {
   $("#editDepModal").modal("hide");
 });
+$("#closemodal").click(function () {
+  $("#addDepModal").modal("hide");
+});
 
 $(document).ready(function () {
   $("#addDep").click(function () {
@@ -135,7 +177,9 @@ $(document).ready(function () {
   });
 
   $("#confirmAdd").click(function () {
-    addDep();
+    facId = $("#facId").val();
+    depName = $("#depName").val();
+    addDep(facId,depName);
   });
 
   var facId = $("#facId").val();
