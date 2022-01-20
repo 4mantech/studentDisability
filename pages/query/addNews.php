@@ -5,7 +5,7 @@ $imageName = $_POST['imageName'];
 $startDate = $_POST['startDate'];
 $endDate = $_POST['endDate'];
 
- if(isset($_FILES['file']['name'])){
+ if(isset($_FILES['file']['name'])&& $_FILES['file']['name']!=""){
   /* Getting file name */
   $filename = $_FILES['file']['name'];
   /* Location */
@@ -23,10 +23,7 @@ $endDate = $_POST['endDate'];
   if(in_array(strtolower($imageFileType), $valid_extensions)) {
      /* Upload file */
      move_uploaded_file($_FILES['file']['tmp_name'],$location);
-  }
-}
-
-$query = "INSERT INTO `articlesslide`(`imagePath`, `imageName`, `startDate`, `endDate`) 
+     $query = "INSERT INTO `articlesslide`(`imagePath`, `imageName`, `startDate`, `endDate`) 
           VALUES ('$newname','$imageName','$startDate','$endDate')";
 $result = mysqli_query($conn,$query);
 if($result){
@@ -34,4 +31,9 @@ if($result){
 }else{
   echo "false";
 }
-?>
+  }else{
+    echo "false";
+  }
+}else{
+  echo "false";
+}

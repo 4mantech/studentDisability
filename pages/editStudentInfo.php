@@ -11,7 +11,6 @@
   require('../bootstrap5CSS.php');
   require('../bootstrap5JS.php');
   require('query/checkLogin.php');
-  
   ?>
 </head>
 

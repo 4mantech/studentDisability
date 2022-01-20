@@ -30,12 +30,14 @@
               <div class="col-3">
               </div>
               <div class="col-6">
+              <form id="fupForm" enctype="multipart/form-data">
               <label style="font-size:20px;"class="card-title">อัพโหลดเอกสารแสดงความจำนงขอรับเงินอุดหนุน</label>
-                <input class="form-control mb-2" type="file" id="formFile"><br>
+                <input class="form-control mb-3" type="file" name="file" id="file" accept="application/pdf">
                 <div class="text-center">
-                <button type="button" class="btn btn-success">บันทึก</button>
+                <button type="button" id="uploadBtn" class="btn btn-success">บันทึก</button>
                 <button type="button" class="btn btn-danger">ยกเลิก</button>
-                </div><br>
+                </div>
+              </form>
               </div>
             </div>
           </div>
@@ -47,5 +49,6 @@
 <div class="mt-4">
   <?php require('components/footer.php'); ?>
 </div>
+<script src="ajax/staffUpload.js"></script>
 </body>
 </html>

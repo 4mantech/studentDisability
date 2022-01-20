@@ -18,7 +18,7 @@ $fac = $_POST['fac'];
 $dep = $_POST['dep'];
 
 
-if (isset($_FILES['file']['name'])) {
+if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != "") {
   $filename = $_FILES['file']['name'];
   $location = "../img/students/" . $filename;
   $imageFileType = pathinfo($location, PATHINFO_EXTENSION);

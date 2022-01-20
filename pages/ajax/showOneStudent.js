@@ -104,12 +104,6 @@ $(document).ready(function () {
       $("#profileimg").attr("src", src1);
       
 
-      
-
-
-      var fac = $("#fac").val();
-      dep = new_data[0]["departmentId"];
-
       showDepartments(fac, dep);
       var dob = new Date(new_data[0]["birthDate"]);
       var month_diff = Date.now() - dob.getTime();

@@ -36,12 +36,11 @@
                 <a class="nav-link text-dark" id="main" href="main.php">หน้าหลัก</a>
               </li>
               <li id="nav_main" class="nav-item">
-                <a class="nav-link text-dark" id="editInfo" href="#">แก้ไขข้อมูลส่วนตัว</a>
+                <a class="nav-link text-dark" id="editInfo" href="formEditUser.php?id=<?php echo $_SESSION['login_id']; ?>">แก้ไขข้อมูลส่วนตัว</a>
               </li>
               <?php
                 if($s_login_role == "แอดมิน"){
               ?>
-            
               <li class="nav-item">
                 <a class="nav-link text-dark"  id="manage" href="manageUsers.php">จัดการข้อมูลผู้ใช้</a>
               </li>
