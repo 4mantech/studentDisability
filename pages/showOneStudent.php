@@ -11,7 +11,10 @@
   require('../bootstrap5CSS.php');
   require('../bootstrap5JS.php');
   require('query/checkLogin.php');
-  
+  if($_SESSION['role'] != "staff"){
+    session_destroy();
+    header("Location:../main.php");
+  }
   ?>
 </head>
 
@@ -30,7 +33,7 @@
             <div class="row">
             <div class="col"></div>
               <div class="col">
-            <input class="form-control mb-2 canEdit" type="file" name="file" id="file" disabled>
+            <input class="form-control mb-2 canEdit" type="file" name="file" id="file" accept="image/jpg, image/jpeg, image/png" disabled>
             </div>
             <div class="col">
             </div>
@@ -168,7 +171,6 @@
               </div>
             </div>
           </div>
-
             <div class="row">
               <div class="col-2">
               </div>

@@ -111,5 +111,4 @@
   </div>
   <script src="ajax/editUser.js"></script>
 </body>
-
 </html>

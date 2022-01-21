@@ -30,6 +30,7 @@ const callAjax = () =>{
   formdata.append('address', $("#address").val())
   formdata.append('Province', $("#Province").val())
   formdata.append('District', $("#District").val())
+  formdata.append('subDistrict', $("#subdistrict").val())
   formdata.append('PostalCode', $("#PostalCode").val())
   formdata.append('DisaCardId', $("#DisaCardId").val())
   formdata.append('disType', $("#disType").val())

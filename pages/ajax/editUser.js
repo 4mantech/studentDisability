@@ -14,6 +14,7 @@ const ShowOneUser = (id) => {
       $("#birthday").val(new_data[0]["birthDate"]);
       $("#telNum").val(new_data[0]["phone"]);
       $("#StuId").val(new_data[0]["userName"]);
+      $("#subdistrict").val(new_data[0]["subDistrict"]);
       $("#DisaCardId").val(new_data[0]["idCardNumber"]);
       $("#nickname").val(new_data[0]["nickName"]);
       $("#telNum").val(new_data[0]["phone"]);
@@ -51,6 +52,7 @@ $("#submit").click(function () {
     data: data,
     success: function (data) {
       if(data == "true"){
+        console.log("true นะ");
           SoloAlert.alert({
             title:"สำเร็จ",
             body:"แก้ไขสำเร็จ",
@@ -59,6 +61,7 @@ $("#submit").click(function () {
             onOk : ()=>{location.reload()}
           });
       }else{
+        console.log("false นะ");
         SoloAlert.alert({
             title:"ผิดพลาด",
             body:"ไม่สามารถแก้ไขได้",

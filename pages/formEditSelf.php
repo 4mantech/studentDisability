@@ -11,7 +11,7 @@
   require('../bootstrap5CSS.php');
   require('../bootstrap5JS.php');
   require('query/checkLogin.php');
-  if($_SESSION['role'] != "staff"){
+  if($_SESSION['role'] != "student"){
     session_destroy();
     header("Location:../main.php");
   }
@@ -22,11 +22,12 @@
   <?php require('components/navbar.php'); ?>
   <div class="container-fluid" style="margin-bottom: 100px;">
   <form method="post" enctype="multipart/form-data" id="myform">
+    <input type="hidden" id="id" value="<?php echo $_GET['id']; ?>">
     <div class="row">
       <div class="col-2">
       </div>
       <div id="profilepic" class=" card col-8 border mt-2 mb-5">
-        <h4 class="mt-4">&nbsp;&nbsp; เพิ่มนักศึกษา</h4>
+        <h4 class="mt-4">&nbsp;&nbsp; แก้ไขข้อมูลส่วนตัว</h4>
         <div class=" text-center mt-4">
           <img class="border border-dark mb-4" name="file" id="profileimg" src="img/students/profile.jpg" style="width:150px;height:auto;">
           <div class="row">
@@ -178,26 +179,14 @@
               <div class=" text-start form-outline mb-3 ">
                 <label>คณะ</label>
                 <select class="form-select" name="fac" id="fac" aria-label="Default select example">
-                  <option value="0" selected></option>
-                  <option value="2">คณะวิศวกรรมศาสตร์</option>
-                  <option value="3">คณะบริหารธุรกิจ</option>
-                  <option value="4">คณะเทคโนโลยีคหกรรมศาสตร์</option>
-                  <option value="5">คณะศิลปกรรมศาสตร์</option>
-                  <option value="6">คณะเทคโนโลยีการเกษตร</option>
-                  <option value="7">คณะครุศาสตร์อุตสาหกรรม</option>
-                  <option value="8">คณะสถาปัตยกรรมศาสตร์</option>
-                  <option value="9">คณะวิทยาศาสตร์และเทคโนโลยี</option>
-                  <option value="10">คณะเทคโนโลยีสื่อสารมวลชน</option>
-                  <option value="11">คณะศิลปศาสตร์</option>
-                  <option value="12">คณะการแพทย์บูรณาการ</option>
-                  <option value="13">คณะพยาบาลศาสตร์</option>
+                  
                 </select>
               </div>
             </div>
             <div class="col-4">
               <label>สาขา</label>
               <select class="form-select" id="dep" aria-label="Default select example">
-                <option value="0" selected></option>
+              
               </select>
             </div>
           </div>
@@ -217,6 +206,6 @@
   <div class="mt-4 mb-5">
     <?php require('components/footer.php'); ?>
   </div>
-  <script src="ajax/addStudent.js"></script>
+  <script src="ajax/editSelf.js"></script>
 </body>
 </html>

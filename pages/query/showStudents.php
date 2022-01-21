@@ -4,28 +4,78 @@ $fac = $_GET['fac'];
 $dep = $_GET['dep'];
 $sql = "";
 if($fac == 0 && $dep ==0){
-  $sql = "SELECT u.id,u.userName,u.phone,firstName,lastName FROM users u 
-  INNER JOIN studentdetail s ON u.id = s.userId
-  INNER JOIN departments d ON s.departmentId = d.id
-  INNER JOIN faculties f ON f.id = d.facultyId
-  AND u.role = '2'
-  ORDER BY u.id ASC";
+  $sql = "SELECT
+  u.id,
+  u.userName,
+  u.phone,
+  u.firstName,
+  u.lastName,
+  f.id AS facId,
+  f.facultyName,
+  s.departmentId AS depId,
+  s.disabilityType,
+  d.departmentName
+FROM
+  users u
+  INNER JOIN studentdetail s
+  ON u.id = s.userId
+  INNER JOIN departments d
+  ON s.departmentId = d.id
+  INNER JOIN faculties f
+  ON f.id = d.facultyId AND
+  u.role = '2'
+ORDER BY
+  u.id ASC";
 }elseif($fac != 0 && $dep ==0 ){
-  $sql = "SELECT * FROM users u 
-  INNER JOIN studentdetail s ON u.id = s.userId
-  INNER JOIN departments d ON s.departmentId = d.id
-  INNER JOIN faculties f ON f.id = d.facultyId
-  WHERE f.id = '$fac'
-  AND u.role = '2'
-  ORDER BY u.id ASC";
+  $sql = "SELECT
+  u.id,
+  u.userName,
+  u.phone,
+  u.firstName,
+  u.lastName,
+  f.id AS facId,
+  f.facultyName,
+  s.departmentId AS depId,
+  s.disabilityType,
+  d.departmentName
+FROM
+  users u
+  INNER JOIN studentdetail s
+  ON u.id = s.userId
+  INNER JOIN departments d
+  ON s.departmentId = d.id
+  INNER JOIN faculties f
+  ON f.id = d.facultyId
+WHERE
+  f.id = '$fac' AND
+  u.role = '2'
+ORDER BY
+  u.id ASC";
 }elseif($dep !=0){
-  $sql = "SELECT * FROM users u 
-  INNER JOIN studentdetail s ON u.id = s.userId
-  INNER JOIN departments d ON s.departmentId = d.id
-  INNER JOIN faculties f ON f.id = d.facultyId
-  WHERE s.departmentId = '$dep'
-  AND u.role = '2'
-  ORDER BY u.id ASC";
+  $sql = "SELECT
+  u.id,
+  u.userName,
+  u.phone,
+  u.firstName,
+  u.lastName,
+  f.id AS facId,
+  f.facultyName,
+  s.departmentId AS depId,
+  s.disabilityType,
+  d.departmentName
+FROM
+  users u
+  INNER JOIN studentdetail s
+  ON u.id = s.userId
+  INNER JOIN departments d
+  ON s.departmentId = d.id
+  INNER JOIN faculties f
+  ON f.id = d.facultyId
+WHERE
+  s.departmentId = '$dep' AND
+  u.role = '2'
+ORDER BY
+  u.id ASC";
 }
 
 $result = mysqli_query($conn,$sql);

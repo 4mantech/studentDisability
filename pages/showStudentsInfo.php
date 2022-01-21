@@ -10,6 +10,10 @@
   require('../bootstrap5CSS.php');
   require('../bootstrap5JS.php');
   require('query/checkLogin.php');
+  if($_SESSION['role'] != "staff"){
+    session_destroy();
+    header("Location:../main.php");
+  }
   ?>
   <link rel="stylesheet" href="../assets/css/styleMain.css">
 </head>
@@ -66,6 +70,9 @@
                 <th scope="col">#</th>
                 <th scope="col">รหัสนักศึกษา</th>
                 <th scope="col">ชื่อ-นามสกุล</th>
+                <th scope="col">คณะ</th>
+                <th scope="col">สาขา</th>
+                <th scope="col">ความพิการ</th>
                 <th scope="col">เบอร์โทร</th>
                 <th scope="col">ตรวจสอบ</th>
                 <th scope="col">ลบ</th>

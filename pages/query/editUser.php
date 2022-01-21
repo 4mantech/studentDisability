@@ -10,13 +10,14 @@ $disaCardId = $_POST['DisaCardId'];
 $telNum = $_POST['telNum'];
 $StuId = $_POST['StuId'];
 
+
 $checkId = "SELECT * FROM users WHERE id = '$id'";
 $resultCheck = mysqli_query($conn,$checkId);
 
 if(mysqli_num_rows($resultCheck)==1){
-  $checkDuplicate = "SELECT * FROM users WHERE id != '$id' WHERE idCodeAcdemy = '$StuId' AND idCardNumber='$disaCardId'";
+  $checkDuplicate = "SELECT * FROM users WHERE id != '$id' AND (idCodeAcdemy = '$StuId' OR idCardNumber ='$disaCardId')";
   $resultDuplicate = mysqli_query($conn,$checkDuplicate);
- 
+
   if(mysqli_num_rows($resultDuplicate)>= 1){
     echo "false";
   }else{

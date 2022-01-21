@@ -7,7 +7,7 @@ $birthday = $_POST['birthday'];
 $address = $_POST['address'];
 $province = $_POST['Province'];
 $district = $_POST['District'];
-$subdistrict = $_POST['subdistrict'];
+$subdistrict = $_POST['subDistrict'];
 $postalCode = $_POST['PostalCode'];
 $disaCardId = $_POST['DisaCardId'];
 $disType = $_POST['disType'];
@@ -32,6 +32,8 @@ if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != "") {
   if (in_array(strtolower($imageFileType), $valid_extensions)) {
     move_uploaded_file($_FILES['file']['tmp_name'], $location);
   }
+}else{
+  $newname = "profile.jpg";
 }
 
 
@@ -43,7 +45,7 @@ if (mysqli_num_rows($resultCheck) >= 1) {
   echo "false";
 } else {
   $key = "adisak_meetongCPE61346RMUTT,DSSRMUTT";
-  $hash_login_password = hash_hmac('sha256', $StuId, $key);
+  $hash_login_password = hash_hmac('sha256', $disaCardId, $key);
   $query2 = "INSERT INTO
   `users`(
       `userName`,

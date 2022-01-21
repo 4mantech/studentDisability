@@ -10,6 +10,10 @@
   require('../bootstrap5CSS.php');
   require('../bootstrap5JS.php');
   require('query/checkLogin.php');
+  if ($_SESSION['role'] != "admin") {
+    session_destroy();
+    header("Location:../main.php");
+  }
   ?>
   <link rel="stylesheet" href="../assets/css/styleMain.css">
 </head>
@@ -64,14 +68,14 @@
                     <label style="font-size:20px;" class="card-title">อัพโหลดรูปภาพข่าวสาร</label>
                   </div>
                   <div class="col-6 mb-4">
-                    <input class="form-control" name="file" type="file" id="formFile">
+                    <input class="form-control" name="file" type="file" id="formFile" accept="image/jpg, image/jpeg, image/png">
                   </div>
                 </div>
                 <div class="row">
-                <div class="text-center mt-4 mb-4">
-                      <a href="manageNews.php" class="btn btn-danger">ย้อนกลับ</a>
-                      <button type="button" id="submit" class="btn btn-success">บันทึก</button>
-                    </div>
+                  <div class="text-center mt-4 mb-4">
+                    <a href="manageNews.php" class="btn btn-danger">ย้อนกลับ</a>
+                    <button type="button" id="submit" class="btn btn-success">บันทึก</button>
+                  </div>
                 </div>
               </div>
             </div>

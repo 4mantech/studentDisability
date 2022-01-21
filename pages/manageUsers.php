@@ -9,6 +9,10 @@
   require('../bootstrap5CSS.php'); 
   require('../bootstrap5JS.php'); 
   require('query/checkLogin.php');
+  if($_SESSION['role'] != "admin"){
+    session_destroy();
+    header("Location:../main.php");
+  }
   ?>
   <link rel="stylesheet" href="../assets/css/styleMain.css">
 </head>

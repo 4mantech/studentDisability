@@ -1,3 +1,10 @@
+<?php 
+$urlEdit = "formEditUser.php?id=";
+if($s_login_role == "นักศึกษา"){
+  $urlEdit = "formEditSelf.php?id=";
+}
+
+?>
 <style>
     #navfont {
         font-size: 17px;
@@ -6,6 +13,7 @@
         font-size: 17px;
     }    
 </style>
+
 <nav class="navbar" style="background-color:white;">
   <div class="container-fluid">
     <a class="navbar-brand" href="../pages/main.php">
@@ -36,7 +44,7 @@
                 <a class="nav-link text-dark" id="main" href="main.php">หน้าหลัก</a>
               </li>
               <li id="nav_main" class="nav-item">
-                <a class="nav-link text-dark" id="editInfo" href="formEditUser.php?id=<?php echo $_SESSION['login_id']; ?>">แก้ไขข้อมูลส่วนตัว</a>
+                <a class="nav-link text-dark" id="editInfo" href="<?php echo $urlEdit.$_SESSION['login_id']; ?>">แก้ไขข้อมูลส่วนตัว</a>
               </li>
               <?php
                 if($s_login_role == "แอดมิน"){

@@ -10,6 +10,10 @@
   require('../bootstrap5CSS.php');
   require('../bootstrap5JS.php');
   require('query/checkLogin.php');
+  if ($_SESSION['role'] != "admin") {
+    session_destroy();
+    header("Location:../main.php");
+  }
   ?>
   <link rel="stylesheet" href="../assets/css/styleMain.css">
 </head>
@@ -18,10 +22,36 @@
     position: relative;
     left: 94%;
   }
+  .modal-dialog {
+    position: relative;
+    display: table;
+    overflow-y: auto;    
+    overflow-x: auto;
+    width: auto;
+    min-width: 300px;   
+}
 </style>
 
 <body>
   <?php require('components/navbar.php'); ?>
+
+  <div class="modal fade" id="modalNews" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">ข่าวสารอาหารแห้ง</h5>
+        </div>
+        <div class="modal-body text-center">
+          <img id="biggerNews" class="border" style="width: 848px; height: 410px;">
+          <div><br></div>
+          <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="javascript:$('#modalNews').modal('hide');">ย้อนกลับ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container-fluid">
     <div class="row">
       <div class="col-2">

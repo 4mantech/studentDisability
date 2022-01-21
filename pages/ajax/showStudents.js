@@ -19,6 +19,9 @@ var ShowStudents = () => {
           <th scope="row">${++index}</th>
             <td>${element.userName}</td>
             <td>${element.firstName + " " + element.lastName}</td>
+            <td>${element.facultyName}</th>
+            <td>${element.departmentName}</th>
+            <td>${element.disabilityType}</th>
             <td>${element.phone}</td>
             <td><button type="button" class="btn btn-info btn-m" onclick="window.location.href='showOneStudent.php?id=${
               element.id
