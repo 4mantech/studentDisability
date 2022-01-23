@@ -29,21 +29,19 @@ const ShowOneUser = (id) => {
 };
 
 $("#birthday").change(function () {
-    const dob = new Date($("#birthday").val());
-    var month_diff = Date.now() - dob.getTime();
-    var age_dt = new Date(month_diff);
-    var year = age_dt.getUTCFullYear();
-    var age = Math.abs(year - 1970);
-    $("#age").val(age);
+  const dob = new Date($("#birthday").val());
+  var month_diff = Date.now() - dob.getTime();
+  var age_dt = new Date(month_diff);
+  var year = age_dt.getUTCFullYear();
+  var age = Math.abs(year - 1970);
+  $("#age").val(age);
 });
 
 $("#submit").click(function () {
-  
-
   var form = $("#myform")[0];
   var data = new FormData(form);
-  let age =  $("#age").val()
-  data.append('age',age)
+  let age = $("#age").val();
+  data.append("age", age);
   $.ajax({
     type: "POST",
     enctype: "multipart/form-data",
@@ -53,28 +51,29 @@ $("#submit").click(function () {
     cache: false,
     data: data,
     success: function (data) {
-      if(data == "true"){
+      if (data == "true") {
         console.log("true นะ");
-          SoloAlert.alert({
-            title:"สำเร็จ",
-            body:"แก้ไขสำเร็จ",
-            icon: "success",
-            useTransparency: true,
-            onOk : ()=>{location.reload()}
-          });
-      }else{
+        SoloAlert.alert({
+          title: "สำเร็จ",
+          body: "แก้ไขสำเร็จ",
+          icon: "success",
+          useTransparency: true,
+          onOk: () => {
+            location.reload();
+          },
+        });
+      } else {
         console.log("false นะ");
         SoloAlert.alert({
-            title:"ผิดพลาด",
-            body:"ไม่สามารถแก้ไขได้",
-            icon: "error",
-            useTransparency: true,
-          });
-        }
+          title: "ผิดพลาด",
+          body: "ไม่สามารถแก้ไขได้",
+          icon: "error",
+          useTransparency: true,
+        });
+      }
     },
   });
 });
-
 
 $(document).ready(function () {
   ShowOneUser(id);

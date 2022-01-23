@@ -76,7 +76,7 @@ if($s_login_role == "นักศึกษา"){
                 if($s_login_role == "นักศึกษา"){
               ?>
                  <li class="nav-item">
-                <a class="nav-link text-dark"  id="upload" href="form_upload_student.php">อัพโหลดเอกสาร</a>
+                <a class="nav-link text-dark"  id="upload" href="form_upload_student.php?id=<?php echo $_SESSION['login_id']; ?>">อัพโหลดเอกสาร</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-dark"  id="download" href="form_download_student.php">ดาวน์โหลดเอกสาร</a>

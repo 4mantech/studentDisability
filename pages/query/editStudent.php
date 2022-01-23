@@ -19,6 +19,10 @@ $StuId = $_POST['StuId'];
 $fac = $_POST['fac'];
 $dep = $_POST['dep'];
 
+// echo $id. "<br>".$name. "<br>" .$surname. "<br>".$nickname. "<br>".$birthday. "<br>".$age. "<br>".$address. "<br>".$province. "<br>"
+// .$subdistrict. "<br>".$district. "<br>".$postalCode."<br>".$disaCardId. "<br>".$disType. "<br>".$telNum. 
+// "<br>".$EduYear. "<br>".$StuId. "<br> fac:".$fac. "<br> dep:".$dep; 
+
 $updateStudentDetail = "";
 
 $checkCardId = "SELECT idCardNumber FROM users WHERE id != '$id' AND idCardNumber = '$disaCardId'";
