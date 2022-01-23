@@ -37,18 +37,6 @@
             <label>คณะ</label>
             <select class="form-select" id="fac" aria-label="Default select example">
               <option value="0" selected></option>
-              <option value="2">คณะวิศวกรรมศาสตร์</option>
-              <option value="3">คณะบริหารธุรกิจ</option>
-              <option value="4">คณะเทคโนโลยีคหกรรมศาสตร์</option>
-              <option value="5">คณะศิลปกรรมศาสตร์</option>
-              <option value="6">คณะเทคโนโลยีการเกษตร</option>
-              <option value="7">คณะครุศาสตร์อุตสาหกรรม</option>
-              <option value="8">คณะสถาปัตยกรรมศาสตร์</option>
-              <option value="9">คณะวิทยาศาสตร์และเทคโนโลยี</option>
-              <option value="10">คณะเทคโนโลยีสื่อสารมวลชน</option>
-              <option value="11">คณะศิลปศาสตร์</option>
-              <option value="12">คณะการแพทย์บูรณาการ</option>
-              <option value="13">คณะพยาบาลศาสตร์</option>
             </select>
           </div>
           <div class="col-4">

@@ -206,7 +206,7 @@
                 <div class="col-8 text-center mt-3">
                   <a href="showStudentsInfo.php" class="btn btn-danger">ย้อนกลับ</a>
                   <button type="button" value="edit" id="edit" class="btn btn-warning"> แก้ไข </button>
-                  <a href="form_download_staff.php"  type="button" class="btn btn-info">ตรวจสอบเอกสาร</a>
+                  <a href="form_download_staff.php?id=<?php echo $_GET['id']; ?>"  type="button" class="btn btn-info">ตรวจสอบเอกสาร</a>
                 </div>
               </div>   
             </div>

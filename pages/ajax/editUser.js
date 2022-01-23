@@ -38,6 +38,8 @@ $("#birthday").change(function () {
 });
 
 $("#submit").click(function () {
+  
+
   var form = $("#myform")[0];
   var data = new FormData(form);
   let age =  $("#age").val()

@@ -1,7 +1,6 @@
 var fac = "0";
 var dep = "0";
 var ShowStudents = () => {
-  
   $.ajax({
     type: "GET",
     url: "query/showStudents.php",
@@ -10,9 +9,8 @@ var ShowStudents = () => {
       dep: dep,
     },
     success: function (data) {
-      var new_data = JSON.parse(data).studentsObj;
+      const new_data = JSON.parse(data).studentsObj;
       if(new_data != null){
-      console.log(new_data);
       new_data.forEach((element, index) => {
         $("#tbody").append(`
         <tr>
@@ -44,7 +42,7 @@ var showDepartments = (facId) => {
       fac: facId,
     },
     success: function (data) {
-      let new_data = JSON.parse(data).depObj;
+      const new_data = JSON.parse(data).depObj;
       $("#dep").children().remove();
       $("#dep").html('<option value="0"></option>');
       new_data.forEach((element) => {
@@ -55,8 +53,25 @@ var showDepartments = (facId) => {
     },
   });
 };
+const showFaculties = () =>{
+  $.ajax({
+    url: "query/showAllFac.php",
+    type: "GET",
+    success: function (data) {
+      const new_data = JSON.parse(data).facObj;
+      $("#fac").children().remove();
+      $("#fac").html('<option value="0"></option>');
+      new_data.forEach((element) => {
+        $("#fac").append(`
+        <option value="${element.id}">${element.facultyName}</option>
+        `);
+      });
+    },
+  });
+}
 
 $(document).ready(function () {
+  showFaculties();
   ShowStudents();
   showDepartments(fac);
 
@@ -82,7 +97,7 @@ $(document).ready(function () {
 //   title:"แน่ใจนะ",
 //   body:"ลบจริงๆนะ ?",
 //   useTransparency: true,
-//   onOk : ()=>{alert("kuy")},
+//   onOk : ()=>{alert("OK")},
 //   onCancel: ()=>{alert("ยกเลิก")},
 // });
 

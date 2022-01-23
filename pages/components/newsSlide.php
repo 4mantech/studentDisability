@@ -20,7 +20,7 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
 
   </div>
-  <div class="carousel-inner" id="imgNews">
+  <div class="carousel-inner " id="imgNews">
     <!-- <div class="carousel-item active">
       <img src="img/news/eKob.jpg" class="d-block" alt="...">
     </div>

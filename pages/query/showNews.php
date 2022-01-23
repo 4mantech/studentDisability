@@ -3,7 +3,8 @@ require('connect.php');
 $forMain =$_GET['forMain'];
 $sql ="";
 if($forMain == 'yes'){
-  $sql ="SELECT * FROM `articlesslide` WHERE startDate <= CURRENT_DATE() AND endDate >= CURRENT_DATE() ORDER BY `articlesslide`.`startDate` ASC;";
+  $sql ="SELECT * FROM `articlesslide` WHERE startDate <= CURRENT_DATE() AND endDate >= CURRENT_DATE() ORDER BY `articlesslide`.`endDate` DESC";
+  // $sql ="SELECT * FROM `articlesslide` WHERE startDate <= CURRENT_DATE() AND endDate >= CURRENT_DATE() ORDER BY `articlesslide`.`startDate` ASC;";
 }else{
   $sql = "SELECT * FROM articlesslide ORDER BY startDate ASC";
 }

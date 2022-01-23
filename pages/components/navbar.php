@@ -11,6 +11,9 @@ if($s_login_role == "นักศึกษา"){
     }
     #navout {
         font-size: 17px;
+    }
+    .navbar{
+      padding-top:0px
     }    
 </style>
 
