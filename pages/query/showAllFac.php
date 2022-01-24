@@ -1,6 +1,6 @@
 <?php 
 require('connect.php');
-$sql = "SELECT * FROM faculties";
+$sql = "SELECT f.id,f.facultyName,COUNT(d.facultyId) coutDep FROM `faculties` f INNER JOIN departments d ON f.id = d.facultyId GROUP BY d.facultyId";
 $result = mysqli_query($conn,$sql);
 
 if(mysqli_num_rows($result)>=1){

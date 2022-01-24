@@ -56,9 +56,9 @@ $("#submit").click(function () {
   // FormData object
   var data = new FormData(form);
 
-  setTimeout(function(){
+  setTimeout(function () {
     $(":input").removeClass("animate__animated animate__headShake");
-  },500)
+  }, 500);
   if (
     name == "" ||
     surname == "" ||
@@ -123,6 +123,3 @@ $("#submit").click(function () {
   }
 });
 
-$(document).ready(function () {
-
-});

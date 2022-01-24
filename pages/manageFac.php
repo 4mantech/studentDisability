@@ -89,6 +89,7 @@
               <tr>
                 <th scope="col" class="text-center">#</th>
                 <th scope="col">ชื่อคณะ</th>
+                <th scope="col" class="text-end">จำนวนสาขา</th>
                 <th scope="col" class="text-center">Action</th>
               </tr>
             </thead>

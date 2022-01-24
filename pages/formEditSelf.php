@@ -194,7 +194,7 @@
               <div class="col-2">
               </div>
               <div class="col-8 text-center mt-3 mb-4">
-                <a href="formEditSelf.php" class="btn btn-danger">ย้อนกลับ</a>
+                <a href="formEditSelf.php?id=<?php echo $_GET['id']; ?>" class="btn btn-danger">ย้อนกลับ</a>
                 <button id="edit" type="button" class="btn btn-warning" value="edit">แก้ไข</button>
               </div>
             </div>

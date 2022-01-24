@@ -48,7 +48,7 @@
                           <input class="form-control mb-2" name="PaymentStatementFile" type="file" id="PaymentStatementFile" accept="application/pdf"><br>
                         </div>
                         <div class="col-2">
-                          <button type="button" id="PaymentStatementUpload" class="btn btn-success">บันทึก</button>
+                          <button type="button" id="PaymentStatementUpload" class="btn btn-success" disabled>บันทึก</button>
                         </div>
                       </div>
                     </form>
@@ -64,7 +64,7 @@
                           <input class="form-control mb-2" name="otherDocumentFile" type="file" id="otherDocumentFile" accept="application/pdf"><br>
                         </div>
                         <div class="col-2">
-                          <button type="button" id="otherDocumentUpload" class="btn btn-success">บันทึก</button>
+                          <button type="button" id="otherDocumentUpload" class="btn btn-success" disabled>บันทึก</button>
                         </div>
                       </div>
                     </form>
@@ -80,7 +80,7 @@
                           <input class="form-control mb-2" name="bankPassbookFile" type="file" id="bankPassbookFile" accept="image/jpg, image/jpeg"><br>
                         </div>
                         <div class="col-2">
-                          <button type="button" id="bankPassbookUpload" class="btn btn-success">บันทึก</button>
+                          <button type="button" id="bankPassbookUpload" class="btn btn-success" disabled>บันทึก</button>
                         </div>
                     </form>
                   </div>

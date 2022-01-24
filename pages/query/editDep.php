@@ -4,7 +4,7 @@ $facId = $_POST['facId'];
 $depId = $_POST['depId'];
 $depName = $_POST['depName'];
 
-$checkDep = "SELECT * FROM departments WHERE facultyId != '$facId' AND departmentName = '$depName'";
+$checkDep = "SELECT * FROM departments WHERE facultyId = '$facId' AND departmentName = '$depName'";
 $resultCheck = mysqli_query($conn, $checkDep);
 
 // while($rows = mysqli_fetch_array($resultCheck,MYSQLI_ASSOC)){
@@ -13,7 +13,7 @@ $resultCheck = mysqli_query($conn, $checkDep);
 
 
 if (mysqli_num_rows($resultCheck) >= 1) {
-  echo "false แรก";
+  echo "false";
 } else {
   $sql = "UPDATE departments SET `departmentName`= '$depName' WHERE id = '$depId' AND facultyId = '$facId' ";
   if (mysqli_query($conn, $sql)) {

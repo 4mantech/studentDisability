@@ -7,7 +7,6 @@ var ShowUsers = () => {
       var new_data = JSON.parse(data).usersObj;
       if (new_data != null) {
         var html = "";
-        console.log(new_data);
         new_data.forEach((element, index) => {
           if (element.role == 0) {
             element.role = "แอดมิน";

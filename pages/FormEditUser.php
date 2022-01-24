@@ -47,9 +47,21 @@
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
+                  <label>ชื่อเล่น</label>
+                  <input type="text" name="nickname" id="nickname" class="form-control form-control-md" placeholder="ชื่อเล่น" required />
+                </div>
+              </div>
+
+              <div class="col-4">
+                <div class=" text-start form-outline mb-3 ">
                   <label>วัน/เดือน/ปีเกิด</label>
                   <input type="date" name="birthday" id="birthday" class="form-control form-control-md" min="1995-01-01" max="2022-12-31" placeholder="วัน/เดือน/ปีเกิด" required />
                 </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2">
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
@@ -57,16 +69,16 @@
                   <input type="text" name="age" id="age" class="form-control form-control-md" placeholder="อายุ" disabled />
                 </div>
               </div>
-            </div>
-
-            <div class="row">
-              <div class="col-2">
-              </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>รหัสประจำตัวสถานศึกษา</label>
                   <input type="text" name="StuId" id="StuId" class="form-control form-control-md" placeholder="รหัสประจำตัวสถานศึกษา" required />
                 </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-2">
               </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
@@ -74,25 +86,12 @@
                   <input type="text" name="DisaCardId" id="DisaCardId" class="form-control form-control-md" placeholder="เลขบัตรประชาชน" required />
                 </div>
               </div>
-            </div>
-
-            <div class="row">
-              <div class="col-2">
-              </div>
               <div class="col-4">
                 <div class=" text-start form-outline mb-3 ">
                   <label>เบอร์โทรศัพท์</label>
                   <input type="text" name="telNum" id="telNum" class="form-control form-control-md" placeholder="เบอร์โทรศัพท์" required />
                 </div>
               </div>
-
-              <div class="col-4">
-                <div class=" text-start form-outline mb-3 ">
-                  <label>ชื่อเล่น</label>
-                  <input type="text" name="nickname" id="nickname" class="form-control form-control-md" placeholder="ชื่อเล่น" required />
-                </div>
-              </div>
-
               <div class="row">
                 <div class="col-2">
                 </div>

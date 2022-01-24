@@ -24,7 +24,9 @@ var ShowStudents = () => {
             <td><button type="button" class="btn btn-info btn-m" onclick="window.location.href='showOneStudent.php?id=${
               element.id
             }'">ตรวจสอบ</button></td>
-            <td><button type="button" class="btn btn-danger btn-m">ลบ</button></td>
+            <td><button type="button" class="btn btn-danger btn-m" onclick="areYouSure(${
+              element.id
+            })">ลบ</button></td>
         </tr>
         `);
       });
@@ -77,7 +79,7 @@ $(document).ready(function () {
 
   $("#fac").change(function () {
     fac = $("#fac").val();
-    dep = $("#dep").val();
+    dep =0;
     table.destroy()
     $("#tbody").children().remove();
     ShowStudents();
@@ -93,11 +95,43 @@ $(document).ready(function () {
   });
 });
 
-// SoloAlert.confirm({
-//   title:"แน่ใจนะ",
-//   body:"ลบจริงๆนะ ?",
-//   useTransparency: true,
-//   onOk : ()=>{alert("OK")},
-//   onCancel: ()=>{alert("ยกเลิก")},
-// });
+const areYouSure = (id) =>{
+ SoloAlert.confirm({
+  title:"ยืนยัน",
+  body:"คุณต้องการลบนักศึกษาคนนี้ใช่หรือไม่ ?",
+  useTransparency: true,
+  onOk : ()=>{deleteStudent(id)},
+  onCancel: ()=>{},
+});
+}
 
+const deleteStudent =(id)=>{
+  $.ajax({
+    type: "POST",
+    url:"query/deleteStudent.php",
+    data:{
+      id,
+    },
+    success:function(data){
+      let new_data = JSON.parse(data);
+     if(new_data.status == "true"){
+      SoloAlert.alert({
+        title: "สำเร็จ",
+        body: "ลบข้อมูลเรียบร้อยแล้ว",
+        icon: "success",
+        useTransparency: true,
+        onOk: () => {
+         location.reload();
+        },
+      });
+    }else{
+      SoloAlert.alert({
+        title: "ผิดพลาด",
+        body: "ไม่สามารถลบข้อมูลได้",
+        icon: "error",
+        useTransparency: true,
+      });
+    }
+    },
+  })
+}

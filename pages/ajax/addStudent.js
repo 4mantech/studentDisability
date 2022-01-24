@@ -113,87 +113,86 @@ $(document).ready(function () {
   showFaculties();
   showDepartments(fac);
 });
-$("#name").keyup(function(){
-  if($("#name").val()!=""){
-    $("#name").removeClass("is-invalid")
+$("#name").keyup(function () {
+  if ($("#name").val() != "") {
+    $("#name").removeClass("is-invalid");
   }
-})
-$("#surname").keyup(function(){
-  if($("#surname").val()!=""){
-    $("#surname").removeClass("is-invalid")
+});
+$("#surname").keyup(function () {
+  if ($("#surname").val() != "") {
+    $("#surname").removeClass("is-invalid");
   }
-})
-$("#nickname").keyup(function(){
-  if($("#nickname").val()!=""){
-    $("#nickname").removeClass("is-invalid")
+});
+$("#nickname").keyup(function () {
+  if ($("#nickname").val() != "") {
+    $("#nickname").removeClass("is-invalid");
   }
-})
-$("#birthday").keyup(function(){
-  if($("#birthday").val()!=""){
-    $("#birthday").removeClass("is-invalid")
+});
+$("#birthday").keyup(function () {
+  if ($("#birthday").val() != "") {
+    $("#birthday").removeClass("is-invalid");
   }
-})
-$("#address").keyup(function(){
-  if($("#address").val()!=""){
-    $("#address").removeClass("is-invalid")
+});
+$("#address").keyup(function () {
+  if ($("#address").val() != "") {
+    $("#address").removeClass("is-invalid");
   }
-})
-$("#subdistrict").keyup(function(){
-  if($("#subdistrict").val()!=""){
-    $("#subdistrict").removeClass("is-invalid")
+});
+$("#subdistrict").keyup(function () {
+  if ($("#subdistrict").val() != "") {
+    $("#subdistrict").removeClass("is-invalid");
   }
-})
-$("#District").keyup(function(){
-  if($("#District").val()!=""){
-    $("#District").removeClass("is-invalid")
+});
+$("#District").keyup(function () {
+  if ($("#District").val() != "") {
+    $("#District").removeClass("is-invalid");
   }
-})
-$("#Province").keyup(function(){
-  if($("#Province").val()!=""){
-    $("#Province").removeClass("is-invalid")
+});
+$("#Province").keyup(function () {
+  if ($("#Province").val() != "") {
+    $("#Province").removeClass("is-invalid");
   }
-})
-$("#PostalCode").keyup(function(){
-  if($("#PostalCode").val()!=""){
-    $("#PostalCode").removeClass("is-invalid")
+});
+$("#PostalCode").keyup(function () {
+  if ($("#PostalCode").val() != "") {
+    $("#PostalCode").removeClass("is-invalid");
   }
-})
-$("#DisaCardId").keyup(function(){
-  if($("#DisaCardId").val()!=""){
-    $("#DisaCardId").removeClass("is-invalid")
+});
+$("#DisaCardId").keyup(function () {
+  if ($("#DisaCardId").val() != "") {
+    $("#DisaCardId").removeClass("is-invalid");
   }
-})
-$("#disType").keyup(function(){
-  if($("#disType").val()!=""){
-    $("#disType").removeClass("is-invalid")
+});
+$("#disType").keyup(function () {
+  if ($("#disType").val() != "") {
+    $("#disType").removeClass("is-invalid");
   }
-})
-$("#telNum").keyup(function(){
-  if($("#telNum").val()!=""){
-    $("#telNum").removeClass("is-invalid")
+});
+$("#telNum").keyup(function () {
+  if ($("#telNum").val() != "") {
+    $("#telNum").removeClass("is-invalid");
   }
-})
-$("#EduYear").keyup(function(){
-  if($("#EduYear").val()!=""){
-    $("#EduYear").removeClass("is-invalid")
+});
+$("#EduYear").keyup(function () {
+  if ($("#EduYear").val() != "") {
+    $("#EduYear").removeClass("is-invalid");
   }
-})
-$("#StuId").keyup(function(){
-  if($("#StuId").val()!=""){
-    $("#StuId").removeClass("is-invalid")
+});
+$("#StuId").keyup(function () {
+  if ($("#StuId").val() != "") {
+    $("#StuId").removeClass("is-invalid");
   }
-})
-$("#fac").change(function(){
-  if($("#fac").val()!="0"){
-    $("#fac").removeClass("is-invalid")
+});
+$("#fac").change(function () {
+  if ($("#fac").val() != "0") {
+    $("#fac").removeClass("is-invalid");
   }
-})
-$("#dep").change(function(){
-  if($("#dep").val()!="0"){
-    $("#dep").removeClass("is-invalid")
+});
+$("#dep").change(function () {
+  if ($("#dep").val() != "0") {
+    $("#dep").removeClass("is-invalid");
   }
-})
-
+});
 
 $("#submit").click(function () {
   let name = $("#name").val();
@@ -212,9 +211,9 @@ $("#submit").click(function () {
   let StuId = $("#StuId").val();
   let fac = $("#fac").val();
   let dep = $("#dep").val();
-  setTimeout(function(){
+  setTimeout(function () {
     $(":input").removeClass("animate__animated animate__headShake");
-  },500)
+  }, 500);
   if (
     name == "" ||
     surname == "" ||
@@ -233,56 +232,69 @@ $("#submit").click(function () {
     fac == "0" ||
     dep == " 0"
   ) {
-    if(name == ""){
+    if (name == "") {
       $("#name").addClass("animate__animated animate__headShake is-invalid");
     }
-    if(surname == ""){
+    if (surname == "") {
       $("#surname").addClass("animate__animated animate__headShake is-invalid");
     }
-    if(nickname == ""){
-      $("#nickname").addClass("animate__animated animate__headShake is-invalid");
+    if (nickname == "") {
+      $("#nickname").addClass(
+        "animate__animated animate__headShake is-invalid"
+      );
     }
-    if(address == ""){
+    if (address == "") {
       $("#address").addClass("animate__animated animate__headShake is-invalid");
     }
-    if(birthday == ""){
-      $("#birthday").addClass("animate__animated animate__headShake is-invalid");
+    if (birthday == "") {
+      $("#birthday").addClass(
+        "animate__animated animate__headShake is-invalid"
+      );
     }
-    if(subdistrict == ""){
-      $("#subdistrict").addClass("animate__animated animate__headShake is-invalid");
+    if (subdistrict == "") {
+      $("#subdistrict").addClass(
+        "animate__animated animate__headShake is-invalid"
+      );
     }
-    if(District == ""){
-      $("#District").addClass("animate__animated animate__headShake is-invalid");
+    if (District == "") {
+      $("#District").addClass(
+        "animate__animated animate__headShake is-invalid"
+      );
     }
-    if(Province == ""){
-      $("#Province").addClass("animate__animated animate__headShake is-invalid");
+    if (Province == "") {
+      $("#Province").addClass(
+        "animate__animated animate__headShake is-invalid"
+      );
     }
-    if(PostalCode == ""){
-      $("#PostalCode").addClass("animate__animated animate__headShake is-invalid");
+    if (PostalCode == "") {
+      $("#PostalCode").addClass(
+        "animate__animated animate__headShake is-invalid"
+      );
     }
-    if(DisaCardId == ""){
-      $("#DisaCardId").addClass("animate__animated animate__headShake is-invalid");
+    if (DisaCardId == "") {
+      $("#DisaCardId").addClass(
+        "animate__animated animate__headShake is-invalid"
+      );
     }
-    if(disType == ""){
+    if (disType == "") {
       $("#disType").addClass("animate__animated animate__headShake is-invalid");
     }
-    if(telNum == ""){
+    if (telNum == "") {
       $("#telNum").addClass("animate__animated animate__headShake is-invalid");
     }
-    if(EduYear == ""){
+    if (EduYear == "") {
       $("#EduYear").addClass("animate__animated animate__headShake is-invalid");
     }
-    if(StuId == ""){
+    if (StuId == "") {
       $("#StuId").addClass("animate__animated animate__headShake is-invalid");
     }
-    if(fac == "0"){
+    if (fac == "0") {
       $("#fac").addClass("animate__animated animate__headShake is-invalid");
     }
-    if(dep == "0"){
+    if (dep == "0") {
       $("#dep").addClass("animate__animated animate__headShake is-invalid");
     }
-    
-  }else{
-  callAjax();
+  } else {
+    callAjax();
   }
 });

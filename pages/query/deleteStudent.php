@@ -1,7 +1,6 @@
 <?php 
 require('connect.php');
-$id = $_GET['id'];
-
+$id = $_POST['id'];
 $sql = "DELETE FROM `users` WHERE id = '$id'";
 
 if(mysqli_query($conn,$sql)){

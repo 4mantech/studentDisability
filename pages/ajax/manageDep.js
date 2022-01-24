@@ -7,9 +7,8 @@ const showDep = (facId) => {
     },
     success: function (data) {
       const new_data = JSON.parse(data).depObj;
-      if(new_data != null){
+      if (new_data != null) {
         new_data.forEach((element, index) => {
-          console.log(name);
           $("#tbody").append(`
             <tr>
             <th scope="row" class="text-center">${++index}</th>
@@ -31,74 +30,73 @@ const showDep = (facId) => {
 var depName = $("#depName").val();
 
 const deleteDep = (depId) => {
-      SoloAlert.confirm({
-  title:"ยืนยัน",
-  body:"คุณต้องการที่จะลบสาขานี้ใช่หรือไม่?",
-  useTransparency: true,
-  onOk : ()=>{ 
-    $.ajax({
-    type: "POST",
-    url: "query/deleteDep.php",
-    data: {
-      depId : depId,
+  SoloAlert.confirm({
+    title: "ยืนยัน",
+    body: "คุณต้องการที่จะลบสาขานี้ใช่หรือไม่?",
+    useTransparency: true,
+    onOk: () => {
+      $.ajax({
+        type: "POST",
+        url: "query/deleteDep.php",
+        data: {
+          depId: depId,
+        },
+        success: function (data) {
+          if (data == "false") {
+            SoloAlert.alert({
+              title: "ผิดพลาด",
+              body: "ไม่สามารถลบสาขาได้",
+              icon: "error",
+              useTransparency: true,
+            });
+          } else {
+            SoloAlert.alert({
+              title: "สำเร็จ",
+              body: "ลบสาขาสำเร็จ",
+              icon: "success",
+              useTransparency: true,
+              onOk: () => {
+                window.location.reload();
+              },
+            });
+          }
+        },
+      });
     },
-    success: function (data) {
+    onCancel: () => {},
+  });
+};
 
-      console.log(data);
-      if(data == "false"){
-          SoloAlert.alert({
-            title:"ผิดพลาด",
-            body:"ไม่สามารถลบสาขาได้",
-            icon: "error",
-            useTransparency: true,
-          });
-        }else{
-          SoloAlert.alert({
-            title:"สำเร็จ",
-            body:"ลบสาขาสำเร็จ",
-            icon: "success",
-            useTransparency: true,
-            onOk : ()=>{window.location.reload();}
-          });
-        }
-    },
-  });},
-  onCancel: ()=>{},
-});
-
- 
-
-}
-
-const addDep = (facId,depName) => {
+const addDep = (facId, depName) => {
   $.ajax({
     type: "POST",
     url: "query/addDep.php",
     data: {
-      facId : facId,
-      depName : depName,
+      facId: facId,
+      depName: depName,
     },
     success: function (data) {
-      const newData =  JSON.parse(data).status
-      console.log(newData);
-      if(newData == "department is duplicate"){
-          SoloAlert.alert({
-            title:"ผิดพลาด",
-            body:"ไม่สามารถเพิ่มสาขาได้",
-            icon: "error",
-            useTransparency: true,
-          });
-          $("#addDepModal").modal("hide")
-          $("#depName").val('')
-        }else{
-          SoloAlert.alert({
-            title:"สำเร็จ",
-            body:"เพิ่มสาขาสำเร็จ",
-            icon: "success",
-            useTransparency: true,
-            onOk : ()=>{window.location.reload();}
-          });
-        }
+      const newData = JSON.parse(data).status;
+      if (newData == "department is duplicate") {
+        SoloAlert.alert({
+          title: "ผิดพลาด",
+          body: "ไม่สามารถเพิ่มสาขาได้",
+          icon: "error",
+          useTransparency: true,
+        });
+        $("#addDepModal").modal("hide");
+        $("#depName").val("");
+      } else {
+        SoloAlert.alert({
+          title: "สำเร็จ",
+          body: "เพิ่มสาขาสำเร็จ",
+          icon: "success",
+          useTransparency: true,
+          onOk: () => {
+            window.location.reload();
+          },
+        });
+      }
     },
   });
 };
@@ -179,7 +177,7 @@ $(document).ready(function () {
   $("#confirmAdd").click(function () {
     facId = $("#facId").val();
     depName = $("#depName").val();
-    addDep(facId,depName);
+    addDep(facId, depName);
   });
 
   var facId = $("#facId").val();

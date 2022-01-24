@@ -3,15 +3,14 @@ const showDepartments = (facId, depId) => {
     type: "GET",
     url: "query/ShowDepartments.php",
     data: {
-     fac: facId,
+      fac: facId,
     },
     success: function (data) {
       const newData = JSON.parse(data).depObj;
-      console.log(newData);
       let html = "";
       newData.forEach((element) => {
         html += ` <option value="${element.id}"`;
-        if (element.id == depId && depId !=0) {
+        if (element.id == depId && depId != 0) {
           html += " selected";
         }
         html += `>${element.departmentName}</option>`;
@@ -20,7 +19,25 @@ const showDepartments = (facId, depId) => {
     },
   });
 };
-
+const showFaculties = (fac) => {
+  $.ajax({
+    url: "query/showAllFac.php",
+    type: "GET",
+    success: function (data) {
+      const new_data = JSON.parse(data).facObj;
+      let html = "";
+      $("#fac").children().remove();
+      new_data.forEach((element) => {
+        html += `<option value="${element.id}"`;
+        if (element.id == fac) {
+          html += " selected";
+        }
+        html += ` >${element.facultyName}</option>`;
+      });
+      $("#fac").html(html);
+    },
+  });
+};
 const editStudent = () => {
   var form = $("#studentInfo")[0];
   var data = new FormData(form);
@@ -66,10 +83,10 @@ $("#edit").click(function () {
     editStudent();
   }
 });
-$("#fac").change(function(){
+$("#fac").change(function () {
   let fac = $("#fac").val();
-  showDepartments(fac,0)
-})
+  showDepartments(fac, 0);
+});
 $(document).ready(function () {
   let id = $("#id").val();
   $.ajax({
@@ -80,7 +97,6 @@ $(document).ready(function () {
     },
     success: function (data) {
       var new_data = JSON.parse(data).studentObj;
-      console.log(new_data);
       $("#name").val(new_data[0].firstName);
       $("#surname").val(new_data[0].lastName);
       $("#nickname").val(new_data[0].nickName);
@@ -96,7 +112,7 @@ $(document).ready(function () {
       $("#EduYear").val(new_data[0].yearOfEdu);
       $("#StuId").val(new_data[0].userName);
       $("#fac").val(new_data[0].facultyId);
-      let fac = new_data[0].facultyId;
+      var fac = new_data[0].facultyId;
       let dep = new_data[0].departmentId;
       $("#profileimg").val(new_data[0].imageProfilePath);
       let src1 = "../pages/img/students/" + new_data[0].imageProfilePath;
@@ -108,6 +124,7 @@ $(document).ready(function () {
       var year = age_dt.getUTCFullYear();
       var age = Math.abs(year - 1970);
       $("#age").val(age);
+      showFaculties(fac);
     },
   });
 });

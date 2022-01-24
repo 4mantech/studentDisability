@@ -7,13 +7,12 @@ const showAllFac = () => {
     data: {},
     success: function (data) {
       const new_data = JSON.parse(data).facObj;
-      console.log(new_data);
       new_data.forEach((element, index) => {
-        console.log(name);
         $("#tbody").append(`
         <tr>
         <th scope="row" class="text-center">${++index}</th>
           <td>${element.facultyName}</td>
+          <td class="text-end">${element.coutDep} สาขา</td>
           <td class="text-center">
           <button id="manageDep" type="button" class="btn btn-primary btn-m" onclick="window.location.href='manageDep.php?facId=${
             element.id
@@ -99,7 +98,6 @@ const deleteFac = (facId) => {
           facId: facId,
         },
         success: function (data) {
-          console.log(data);
           if (data == "false") {
             SoloAlert.alert({
               title: "ผิดพลาด",

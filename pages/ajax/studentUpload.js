@@ -1,14 +1,45 @@
+const showAlertSuccess = () =>{
+  SoloAlert.alert({
+          title: "เรียบร้อย",
+          body: "อัพโหลดไฟล์เรียบร้อยแล้ว",
+          icon: "success",
+          useTransparency: true,
+        });
+}
+const showAlertFail = () =>{
+  SoloAlert.alert({
+          title: "ผิดพลาด",
+          body: "ไม่สามารถอัพโหลดไฟล์ได้",
+          icon: "error",
+          useTransparency: true,
+        });
+}
+
 $("#otherDocumentUpload").click(function () {
   let id = $("#id").val()
-  otherUpload(id);
+  if($("#otherDocumentFile").val()==""){
+    $("#otherDocumentFile").addClass('border border-danger');
+  }else{
+    otherUpload(id);
+  }
 });
+
 $("#bankPassbookUpload").click(function () {
   let id = $("#id").val()
-  bankPassbookUpload(id);
+  if($("#bankPassbookFile").val()==""){
+    $("#bankPassbookFile").addClass('border border-danger');
+  }else{
+    bankPassbookUpload(id);
+  }
 });
+
 $("#PaymentStatementUpload").click(function () {
   let id = $("#id").val()
-  PaymentUpload(id);
+  if($("#PaymentStatementFile").val()==""){
+    $("#PaymentStatementFile").addClass('border border-danger');
+  }else{
+    PaymentUpload(id);
+  }
 });
 
 const otherUpload = (id) => {
@@ -25,8 +56,11 @@ const otherUpload = (id) => {
     contentType: false,
     cache: false,
     success: function (data) {
-      console.log(data);
-      // console.log("สำเร็จ");
+      if(data == "true"){
+        showAlertSuccess();
+      }else{
+        showAlertFail();
+      }
     },
   });
 };
@@ -45,7 +79,11 @@ const bankPassbookUpload = (id) => {
     contentType: false,
     cache: false,
     success: function (data) {
-      console.log(data);
+      if(data == "true"){
+        showAlertSuccess();
+      }else{
+        showAlertFail();
+      }
     },
   });
 };
@@ -64,27 +102,43 @@ const PaymentUpload = (id) => {
     contentType: false,
     cache: false,
     success: function (data) {
-      console.log(data); 
-      // if (data == "true") {
-        //     console.log("true นะ");
-        //     SoloAlert.alert({
-        //       title: "สำเร็จ",
-        //       body: "อัพโหลดสำเร็จแล้ว",
-        //       icon: "success",
-        //       useTransparency: true,
-        //       onOk: () => {
-        //         location.reload();
-        //       },
-        //     });
-        //   } else {
-        //     console.log("false นะ");
-        //     SoloAlert.alert({
-        //       title: "ผิดพลาด",
-        //       body: "ไม่สามารถอัพโหลดได้",
-        //       icon: "error",
-        //       useTransparency: true,
-        //     });
-        //   }    
+      if(data = "true"){
+        showAlertSuccess();
+      }else{
+        showAlertFail();
+      }
         },
   });
 };
+
+$(document).ready(function(){
+
+  $("#otherDocumentUpload").prop("disabled", true);
+  $("#bankPassbookUpload").prop("disabled", true);
+  $("#PaymentStatementUpload").prop("disabled", true);
+  
+  $("#PaymentStatementFile").change(function () {
+    if($("#PaymentStatementFile").val()==""){
+      $("#PaymentStatementUpload").prop("disabled", true);
+    }else{
+      $("#PaymentStatementUpload").prop("disabled", false);
+    }
+  })
+
+  $("#bankPassbookFile").change(function () {
+    if($("#bankPassbookFile").val()==""){
+      $("#bankPassbookUpload").prop("disabled", true);
+    }else{
+      $("#bankPassbookUpload").prop("disabled", false);
+    }
+  })
+
+  $("#otherDocumentFile").change(function () {
+    if($("#otherDocumentFile").val()==""){
+      $("#otherDocumentUpload").prop("disabled", true);
+    }else{
+      $("#otherDocumentUpload").prop("disabled", false);
+    }
+  })
+  
+});

@@ -88,7 +88,7 @@
       <div class="col-2">
       </div>
       <div class=" col-8 mt-2">
-        <h4>จัดการสาขาสาขา</h4>
+        <h4>จัดการสาขา</h4>
         <span id="facName"></span>
         <button id="addDep" type="button" class="btn btn-success mb-3">เพิ่มสาขา</button>
         <div class="row">
