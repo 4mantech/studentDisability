@@ -25,18 +25,10 @@ if($s_login_role == "นักศึกษา"){
     <h6 class=" text-dark">ยินดีต้อนรับคุณ : <?php echo $s_login_username; ?></h6>
   </div>
 </nav>
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid" style="background-color:rgba(133, 168, 221,1);">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarLeftAlignExample"
-      aria-controls="navbarLeftAlignExample"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      >
-      <i class="fas fa-phone fa-4x"></i>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navfont" class="text-start">
       <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
@@ -44,42 +36,42 @@ if($s_login_role == "นักศึกษา"){
           <div class="col-12">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li id="nav_main" class="nav-item">
-                <a class="nav-link text-dark" id="main" href="main.php">หน้าหลัก</a>
+                <a class="nav-link" id="main" href="main.php">หน้าหลัก</a>
               </li>
-              <li id="nav_main" class="nav-item">
-                <a class="nav-link text-dark" id="editInfo" href="<?php echo $urlEdit.$_SESSION['login_id']; ?>">แก้ไขข้อมูลส่วนตัว</a>
+              <li id="nav_edit_info" class="nav-item">
+                <a class="nav-link" id="editInfo" href="<?php echo $urlEdit.$_SESSION['login_id']; ?>">แก้ไขข้อมูลส่วนตัว</a>
               </li>
               <?php
                 if($s_login_role == "แอดมิน"){
               ?>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="manage" href="manageUsers.php">จัดการข้อมูลผู้ใช้</a>
+                <a class="nav-link"  id="manage" href="manageUsers.php">จัดการข้อมูลผู้ใช้</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="manageFac" href="manageFac.php">จัดการคณะ</a>
+                <a class="nav-link"  id="manageFac" href="manageFac.php">จัดการคณะ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="manageNews" href="manageNews.php">จัดการข่าว</a>
+                <a class="nav-link"  id="manageNews" href="manageNews.php">จัดการข่าว</a>
               </li>
               <?php
                 }
                 if($s_login_role == "เจ้าหน้าที่"){
               ?>
              <li class="nav-item">
-                <a class="nav-link text-dark" aria-current="page" id="student_information" href="showStudentsInfo.php">ข้อมูลนักศึกษาพิการ</a>
+                <a class="nav-link" aria-current="page" id="student_information" href="showStudentsInfo.php">ข้อมูลนักศึกษาพิการ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="upload" href="form_upload_staff.php">อัพโหลดเอกสาร</a>
+                <a class="nav-link"  id="upload" href="form_upload_staff.php">อัพโหลดเอกสาร</a>
               </li>
               <?php
                 }
                 if($s_login_role == "นักศึกษา"){
               ?>
                  <li class="nav-item">
-                <a class="nav-link text-dark"  id="upload" href="form_upload_student.php?id=<?php echo $_SESSION['login_id']; ?>">อัพโหลดเอกสาร</a>
+                <a class="nav-link"  id="upload" href="form_upload_student.php?id=<?php echo $_SESSION['login_id']; ?>">อัพโหลดเอกสาร</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark"  id="download" href="form_download_student.php">ดาวน์โหลดเอกสาร</a>
+                <a class="nav-link"  id="download" href="form_download_student.php">ดาวน์โหลดเอกสาร</a>
               </li>
               <?php 
                 }

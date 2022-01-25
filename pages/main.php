@@ -64,6 +64,7 @@
 </div>
 <script>
   $(document).ready(function(){
+    $('#nav_main a').addClass(' active');
     if($("#notice").val() == "1"){
       $("#staticBackdrop").modal("show")
     }

@@ -81,7 +81,7 @@
       <div class="col-2">
       </div>
       <div class=" col-8 mt-2">
-        <h4>คณะ</h4>
+        <h4>จัดการคณะ</h4>
         <button id="addFac" type="button" class="btn btn-success mb-3">เพิ่มคณะ</button>
         <div class="row">
           <table class="table table-striped" id="tableFac">
