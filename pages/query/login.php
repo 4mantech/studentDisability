@@ -20,10 +20,12 @@ if($result_user->num_rows ==1 ){
   $id =  $row_user['id'];
   if($row_user['role'] == 0){
     $_SESSION['role'] = "admin";
+    $_SESSION['notice'] = "0";
     $_SESSION['statusLogin'] = 1;
     header("Location:../main.php");
   }elseif($row_user['role'] == 1){
     $_SESSION['role'] = "staff";
+    $_SESSION['notice'] = "0";
     $_SESSION['statusLogin'] = 1;
     header("Location:../main.php");
   }elseif($row_user['role'] == 2){

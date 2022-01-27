@@ -53,7 +53,7 @@ const editUser = (id) => {
   let form = $("#myform")[0];
   let data = new FormData(form);
   data.append("id", id);
-  data.append("age",$("#age").val());
+  data.append("age", $("#age").val());
   $("#editUserModal").modal("hide");
   $.ajax({
     type: "POST",
@@ -120,6 +120,16 @@ const deleteUser = (id) => {
     },
   });
 };
+
+$("#birthday").change(function () {
+  const dob = new Date($("#birthday").val());
+  var month_diff = Date.now() - dob.getTime();
+  var age_dt = new Date(month_diff);
+  var year = age_dt.getUTCFullYear();
+  var age = Math.abs(year - 1970);
+  $("#age").val(age);
+});
+
 const showOneUser = (id) => {
   $.ajax({
     type: "GET",
