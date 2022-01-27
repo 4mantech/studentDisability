@@ -10,7 +10,6 @@ $disaCardId = $_POST['DisaCardId'];
 $telNum = $_POST['telNum'];
 $StuId = $_POST['StuId'];
 
-
 $checkId = "SELECT * FROM users WHERE id = '$id'";
 $resultCheck = mysqli_query($conn,$checkId);
 

@@ -19,6 +19,7 @@ $StuId = $_POST['StuId'];
 $fac = $_POST['fac'];
 $dep = $_POST['dep'];
 
+
 // echo $id. "<br>".$name. "<br>" .$surname. "<br>".$nickname. "<br>".$birthday. "<br>".$age. "<br>".$address. "<br>".$province. "<br>"
 // .$subdistrict. "<br>".$district. "<br>".$postalCode."<br>".$disaCardId. "<br>".$disType. "<br>".$telNum. 
 // "<br>".$EduYear. "<br>".$StuId. "<br> fac:".$fac. "<br> dep:".$dep; 
@@ -56,22 +57,23 @@ if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != "") {
 
   if (in_array(strtolower($imageFileType), $valid_extensions)) {
     move_uploaded_file($_FILES['file']['tmp_name'], $location);
+    $updateStudentDetail = "UPDATE
+    `studentdetail`
+  SET
+    `departmentId` = '$dep',
+    `address` = '$address',
+    `imageProfilePath` = '$newname',
+    `subDistrict` = '$subdistrict',
+    `district` = '$district',
+    `province` = '$province',
+    `postalCode` = '$postalCode',
+    `disabilityId` = '$disaCardId',
+    `disabilityType` = '$disType',
+    `yearOfEdu` = '$EduYear'
+  WHERE
+    userId = '$id'";
   }
-  $updateStudentDetail = "UPDATE
-  `studentdetail`
-SET
-  `departmentId` = '$dep',
-  `address` = '$address',
-  `imageProfilePath` = '$newname',
-  `subDistrict` = '$subdistrict',
-  `district` = '$district',
-  `province` = '$province',
-  `postalCode` = '$postalCode',
-  `disabilityId` = '$disaCardId',
-  `disabilityType` = '$disType',
-  `yearOfEdu` = '$EduYear'
-WHERE
-  userId = '$id'";
+
 } else {
   //ไม่มีไฟล์
   $updateStudentDetail = "UPDATE
@@ -108,3 +110,5 @@ if (mysqli_num_rows($resultCheck) >= 1) {
   }
 }
 mysqli_close($conn);
+
+?>

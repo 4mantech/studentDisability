@@ -87,8 +87,23 @@ $("#fac").change(function () {
   let fac = $("#fac").val();
   showDepartments(fac, 0);
 });
+
+
+$("#file").change(function () {
+  preview_image(event);
+});
+function preview_image(event) {
+  var reader = new FileReader();
+  reader.onload = function () {
+    var output = document.getElementById("profileimg");
+    output.src = reader.result;
+  };
+  reader.readAsDataURL(event.target.files[0]);
+}
 $(document).ready(function () {
   let id = $("#id").val();
+  $('#nav_student_info a').addClass(' active');
+
   $.ajax({
     type: "GET",
     url: "query/showOneStudent.php",

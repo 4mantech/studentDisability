@@ -39,7 +39,7 @@
                 <input class="form-control mb-3" type="file" name="file" id="file" accept="application/pdf">
                 <div class="text-center">
                 <button type="button" id="uploadBtn" class="btn btn-success">บันทึก</button>
-                <button type="button" class="btn btn-danger">ยกเลิก</button>
+                <button type="button" id="cancelBtn" class="btn btn-danger">ยกเลิก</button>
                 </div>
               </form>
               </div>

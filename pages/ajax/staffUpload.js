@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $('#nav_upload a').addClass(' active');
+
   $("#uploadBtn").prop("disabled", true);
 });
 $("#file").change(function () {
@@ -8,6 +10,10 @@ $("#file").change(function () {
     $("#uploadBtn").prop("disabled", false);
   }
 });
+$("#cancelBtn").click(function(){
+  $("#file").val('');
+  $("#uploadBtn").prop("disabled", true);
+})
 $("#uploadBtn").click(function () {
   var file_data = $("#file").prop("files")[0];
   var form_data = new FormData();

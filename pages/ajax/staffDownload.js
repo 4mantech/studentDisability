@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  $('#nav_student_info a').addClass(' active');
   const id = $("#id").val();
   $.ajax({
     type: "GET",

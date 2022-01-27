@@ -1,6 +1,8 @@
 var fac = "";
 $(document).ready(function () {
   let id = $("#id").val();
+  $('#nav_edit_info a').addClass(' active');
+
   $.ajax({
     type: "GET",
     url: "query/showOneStudent.php",

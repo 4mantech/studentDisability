@@ -185,5 +185,6 @@ $('#telNum').keyup(function() {
 
 
 $(document).ready(function () {
+  $('#nav_edit_info a').addClass(' active');
   ShowOneUser(id);
 });

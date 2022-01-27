@@ -89,5 +89,4 @@
   </div>
   <script src="ajax/addNews.js"></script>
 </body>
-
 </html>

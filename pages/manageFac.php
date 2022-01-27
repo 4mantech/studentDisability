@@ -103,8 +103,8 @@
     </div>
   </div>
   <div class="mt-4">
-    <br> <br> <br> <br>
-    <?php require('components/footer.php'); ?>
+  <br> <br> <br> <br> <br> <br>
+      <?php require('components/footer.php'); ?>
   </div>
   <script src="ajax/manageFac.js"></script>
 </body>

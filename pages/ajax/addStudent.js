@@ -110,6 +110,7 @@ $("#birthday").change(function () {
   $("#age").val(age);
 });
 $(document).ready(function () {
+  $('#nav_student_info a').addClass(' active');
   showFaculties();
   showDepartments(fac);
 });

@@ -76,6 +76,7 @@ $(document).ready(function () {
   showFaculties();
   ShowStudents();
   showDepartments(fac);
+  $('#nav_student_info a').addClass(' active');
 
   $("#fac").change(function () {
     fac = $("#fac").val();

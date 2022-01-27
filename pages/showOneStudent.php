@@ -79,7 +79,7 @@
             <div class="col-4">
               <div class=" text-start form-outline mb-3 ">
                 <label>อายุ</label>
-                <input type="text" name="age" id="age" class="form-control form-control-md canEdit" placeholder="อายุ" disabled />
+                <input type="text" name="age" id="age" class="form-control form-control-md" placeholder="อายุ" disabled />
               </div>
             </div>
             <div class="col-4">
@@ -202,7 +202,7 @@
         </div>
       </div>
     </div>
-  <div class="mt-4 mb-5">
+  <div class="mt-4 mb-5"> 
     <?php require('components/footer.php'); ?>
   </div>
   <script src="ajax/showOneStudent.js"></script>

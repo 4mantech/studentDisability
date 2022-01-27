@@ -35,6 +35,7 @@ const ShowNews = () => {
 };
 
 $(document).ready(function () {
+  $('#manage_news a').addClass(' active');
   ShowNews();
 });
 const showBigImg = (id) => {
@@ -64,3 +65,4 @@ const deleteNews = (id) => {
     onCancel: () => {},
   });
 };
+

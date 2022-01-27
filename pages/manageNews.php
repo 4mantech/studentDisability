@@ -80,7 +80,7 @@
       </div>
     </div>
   </div>
-  <div class="mt-5">
+  <div class="my-5">
     <br><br><br><br>
     <?php require('components/footer.php'); ?>
   </div>

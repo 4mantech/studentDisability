@@ -191,4 +191,6 @@ $(document).on("click", "#closeModalEdit", function () {
 
 $(document).ready(function () {
   showAllFac();
+  $('#manage_fac a').addClass(' active');
+
 });

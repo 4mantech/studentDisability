@@ -1,3 +1,9 @@
+
+$(document).ready(function () {
+  $('#manage_news a').addClass(' active');
+  ShowNews();
+});
+
 $(document).ready(function () {
   var file = "";
   var startDate = "";
@@ -90,3 +96,5 @@ $(document).ready(function () {
     }
   });
 });
+
+

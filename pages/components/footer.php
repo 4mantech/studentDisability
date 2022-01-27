@@ -10,14 +10,10 @@
   <div class="rows">
     <div class="p-2">
       <h5>ศูนย์พัฒนานักศึกษามหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี</h5>
-      <p>Disabilities Support Services Rajamanga University of Technology Thanyaburi</p>
+      <p>Disabilities Support Services Rajamangala University of Technology Thanyaburi</p>
       <img src="img/facebook_logo.png" style="width:25px; height:25px" alt="...">
-      <a href="https://www.facebook.com/DSSRMUTT/">DSS RMUTT</a> <span>โทรศัพท์ 0929315498 </span>
-      <!-- <p style="font-size:13px;">Copyright © 2021 By 4mantech<p> -->
-      <p style="font-size:13px;">Copyright © 2021 By Adisak Meethong หรือเรียกสั้นๆว่า ดีเจโปเต้ No.1 วงการ Cabal,LOL,ROV,
-        Ragnarok,NFT,Defi,Crypto,CryptoCars หรือจะเรียกง่ายๆว่ากูน่ะ <span style="font-size: 36px; color:red;">No.1</span>
-        ทุกวงการ ยะหู๊วววววววววววววววววววววววววววววววววววววววววว ใครมีปัญหาอะไรก็มาดิไอ้สั๊ส ไอ้พวกเหี้ย หน้าหี
-      <p>
+      <a href="https://www.facebook.com/DSSRMUTT/" target="_blank">DSS RMUTT</a> <span>โทรศัพท์ 0929315498 </span>
+      <p style="font-size:13px;">Copyright © 2021 By Adisak Meethong CPE61346<p>
     </div>
     </div>
   </div>

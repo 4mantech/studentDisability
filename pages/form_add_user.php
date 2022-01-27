@@ -114,5 +114,10 @@
   </div>
   <script src="ajax/adduser.js"></script>
 </body>
-
+<script>
+  $(document).ready(function () {
+  $('#manage_user a').addClass(' active');
+  ShowUsers();
+});
+</script>
 </html>

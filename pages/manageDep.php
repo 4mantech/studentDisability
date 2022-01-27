@@ -110,7 +110,7 @@
     </div>
   </div>
   <div class="mt-4">
-    <br> <br> <br> <br>
+  <br> <br> <br> <br> <br> <br> <br>
     <?php require('components/footer.php'); ?>
   </div>
   <script src="ajax/manageDep.js"></script>

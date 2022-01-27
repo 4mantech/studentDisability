@@ -170,6 +170,8 @@ $("#closemodal").click(function () {
 });
 
 $(document).ready(function () {
+  $('#manage_fac a').addClass(' active');
+
   $("#addDep").click(function () {
     $("#addDepModal").modal("show");
   });

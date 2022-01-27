@@ -112,6 +112,7 @@ const PaymentUpload = (id) => {
 };
 
 $(document).ready(function(){
+  $('#nav_upload_student a').addClass(' active');
 
   $("#otherDocumentUpload").prop("disabled", true);
   $("#bankPassbookUpload").prop("disabled", true);

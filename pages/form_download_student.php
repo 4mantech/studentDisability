@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>หน้าหลัก</title>
+  <title>ดาวน์โหลดเอกสาร</title>
   <?php
   require('../bootstrap5CSS.php');
   require('../bootstrap5JS.php');
@@ -46,5 +46,11 @@
     <?php require('components/footer.php'); ?>
   </div>
 </body>
+<script>
+  $(document).ready(function () {
+  $('#nav_download_student a').addClass(' active');
+  ShowUsers();
+});
+</script>
 
 </html>

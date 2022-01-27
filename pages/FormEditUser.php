@@ -21,7 +21,7 @@
       <div class="col-2">
       </div>
       <div id="profilepic" class=" card col-8 border mt-2 mb-5">
-        <h4 class="mt-4">&nbsp;&nbsp; แก้ไขข้อมูลส่วนตัว</h4>
+        <h4 class="m-4">ข้อมูลส่วนตัว</h4>
         <div class="card-body">
           <form method="POST" enctype="multipart/form-data" id="myform">
             <div class="row">
