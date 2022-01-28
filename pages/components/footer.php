@@ -13,7 +13,7 @@
       <p>Disabilities Support Services Rajamangala University of Technology Thanyaburi</p>
       <img src="img/facebook_logo.png" style="width:25px; height:25px" alt="...">
       <a href="https://www.facebook.com/DSSRMUTT/" target="_blank">DSS RMUTT</a> <span>โทรศัพท์ 0929315498 </span>
-      <p style="font-size:13px;">Copyright © 2021 By Adisak Meethong CPE61346<p>
+      <p style="font-size:13px;">Copyright © 2021-2022 By Adisak Meethong CPE61346<p>
     </div>
     </div>
   </div>

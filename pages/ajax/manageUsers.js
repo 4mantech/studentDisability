@@ -1,6 +1,6 @@
 var userId = "";
 
-var ShowUsers = () => {
+const ShowUsers = () => {
   $.ajax({
     type: "GET",
     url: "query/showUsers.php",
@@ -26,6 +26,7 @@ var ShowUsers = () => {
     },
   });
 };
+
 const confirmDel = (id) => {
   SoloAlert.confirm({
     title: "ยืนยัน",

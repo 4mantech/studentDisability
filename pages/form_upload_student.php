@@ -35,12 +35,13 @@
             <div class="mb-3">
               <h4 class="mt-3">&nbsp;&nbsp; อัพโหลดเอกสาร</h4>
               <div class="row">
-                <div class="col-3">
+                <div class="col-2">
                 </div>
-                <div class="col-6">
+                <div class="col-8">
                   <div class="row">
                     <div class="col-12">
                       <label style="font-size:20px;" class="card-title">เอกสารแจ้งยอดการชำระเงิน</label>
+                      <label class="card-title" id="statusPaymentStatementLabel"></label>
                     </div>
                     <form method="post" enctype="multipart/form-data" id="PaymentForm">
                       <div class="row">
@@ -57,6 +58,7 @@
                   <div class="row">
                     <div class="col-12">
                       <label style="font-size:20px;" class="card-title">เอกสารอื่นที่เกี่ยวข้องกับนักศึกษาพิการ</label>
+                      <label class="card-title" id="otherDocumentLabel"></label>
                     </div>
                     <form method="post" enctype="multipart/form-data" id="otherForm">
                       <div class="row">
@@ -74,6 +76,7 @@
                     <form method="post" enctype="multipart/form-data" id="bankForm">
                       <div class="col-12">
                         <label style="font-size:20px;" class="card-title">เอกสารสำเนาสมุดบัญชีธนาคาร</label>
+                        <label class="card-title" id="bankPassbookLabel"></label>
                       </div>
                       <div class="row">
                         <div class="col-10">
