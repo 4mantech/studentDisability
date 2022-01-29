@@ -25,6 +25,35 @@
 </style>
 
 <body>
+ <!-- Modal -->
+ <div class="modal fade" id="changePassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changePasswordLabelLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changePasswordLabelLabel">เปลี่ยนรหัสผ่านสตาฟ</h5>
+        </div>
+        <div class="modal-body">
+
+          <div class="col">
+            <div class="input-group has-validation">
+              <span class="input-group-text" id="inputGroupPrepend">รหัสผ่านใหม่</span>
+              <input type="hidden" id="studentId">
+              <input type="password" id="newPassword" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+               กรุณากรอกรหัสผ่าน
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancelModal" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+          <button type="button" id="savePassword" class="btn btn-success">บันทึก</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+
   <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
       <div class="modal-content">
@@ -149,6 +178,7 @@
     <?php require('components/footer.php'); ?>
   </div>
   <script src="ajax/manageUsers.js"></script>
+  <script src="ajax/changePassword.js"></script>
 </body>
 
 </html>

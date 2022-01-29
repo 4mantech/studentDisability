@@ -17,7 +17,7 @@ if (mysqli_num_rows($resultCheck) >= 1) {
   echo "false";
 } else {
   $key = "adisak_meetongCPE61346RMUTT,DSSRMUTT";
-  $hash_login_password = hash_hmac('sha256',$StuId,$key);
+  $hash_login_password = hash_hmac('sha256',$disaCardId,$key);
   $query = "INSERT INTO `users`(
   `userName`,
   `password`,

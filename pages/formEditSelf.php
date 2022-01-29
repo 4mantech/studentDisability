@@ -206,6 +206,7 @@
   <div class="mt-4 mb-5">
     <?php require('components/footer.php'); ?>
   </div>
+
   <script src="ajax/editSelf.js"></script>
 </body>
 

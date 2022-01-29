@@ -10,7 +10,7 @@
   require('../bootstrap5CSS.php');
   require('../bootstrap5JS.php');
   require('query/checkLogin.php');
-  if($_SESSION['role'] != "staff"){
+  if ($_SESSION['role'] != "staff") {
     session_destroy();
     header("Location:../main.php");
   }
@@ -20,17 +20,46 @@
 <style>
   #addStudent {
     position: relative;
-    left:35%;
+    left: 35%;
   }
 </style>
 
 <body>
+  <!-- Modal -->
+  <div class="modal fade" id="changePassword" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changePasswordLabelLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changePasswordLabelLabel">เปลี่ยนรหัสผ่านนักศึกษา</h5>
+        </div>
+        <div class="modal-body">
+
+          <div class="col">
+            <div class="input-group has-validation">
+              <span class="input-group-text" id="inputGroupPrepend">รหัสผ่านใหม่</span>
+              <input type="hidden" id="studentId">
+              <input type="password" id="newPassword" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+               กรุณากรอกรหัสผ่าน
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancelModal" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+          <button type="button" id="savePassword" class="btn btn-success">บันทึก</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+
   <?php require('components/navbar.php'); ?>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-2">
+      <div class="col-1">
       </div>
-      <div class=" col-8 mt-2">
+      <div class=" col-10 mt-2">
         <h4>ข้อมูลนักศึกษาพิการ</h4>
         <div class="row">
           <div class="col-4">
@@ -47,7 +76,7 @@
           </div>
           <div class="col-4 text-center">
             <br>
-            <a href="form_add_student.php" id="addStudent" type="button" class="btn btn-success">เพิ่มนักศึกษา</a>
+            <a href="form_add_student.php" id="addStudent" type="button" class="btn btn-success ">เพิ่มนักศึกษา</a>
           </div>
         </div>
 
@@ -62,12 +91,11 @@
                 <th scope="col">สาขา</th>
                 <th scope="col">ความพิการ</th>
                 <th scope="col">เบอร์โทร</th>
-                <th scope="col">ตรวจสอบ</th>
-                <th scope="col">ลบ</th>
+                <th scope="col-4">Action</th>
               </tr>
             </thead>
             <tbody id="tbody">
-             
+
             </tbody>
           </table>
         </div>
@@ -76,8 +104,16 @@
 
   </div>
   <div class="mt-4">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <?php require('components/footer.php'); ?>
   </div>
+  <script src="ajax/changePassword.js"></script>
   <script src="ajax/showStudents.js"></script>
 </body>
 

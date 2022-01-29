@@ -16,8 +16,13 @@ const ShowUsers = () => {
           html += `<td>${element.userName}</td>`;
           html += `<td>${element.firstName} ${element.lastName}</td>`;
           html += `<td>${element.role}</td>`;
-          html += `<td class="text-center"><button class="btn btn-warning" onclick="showModalEdit(${element.id})">แก้ไข</button>
-          <button class="btn btn-danger" onclick="confirmDel(${element.id})">ลบ</button></td>`;
+          html += `<td class="text-center">
+          <button class="btn btn-warning" onclick="showModalEdit(${element.id})">แก้ไข</button>
+          <button type="button" class="btn btn-info btn-m" onclick="showModalEditPassword(${
+            element.id
+          })">เปลี่ยนรหัสผ่าน</button>
+          <button class="btn btn-danger" onclick="confirmDel(${element.id})">ลบ</button>
+          </td>`;
           html += `</tr>`;
         });
       }
