@@ -88,6 +88,7 @@ const callAjax = () => {
 };
 $("#fac").change(function () {
   fac = $("#fac").val();
+  $("#dep").prop( "disabled", false );
   showDepartments(fac);
 });
 $("#file").change(function () {
@@ -112,7 +113,7 @@ $("#birthday").change(function () {
 $(document).ready(function () {
   $('#nav_student_info a').addClass(' active');
   showFaculties();
-  showDepartments(fac);
+  $("#dep").prop( "disabled", true );
 });
 $("#name").keyup(function () {
   if ($("#name").val() != "") {

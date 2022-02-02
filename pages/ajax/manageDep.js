@@ -22,6 +22,8 @@ const showDep = (facId) => {
             `);
         });
         table = $("#tableDep").DataTable();
+      }else{
+      
       }
     },
   });
@@ -193,8 +195,15 @@ $(document).ready(function () {
     },
     success: function (data) {
       let facForEdit = JSON.parse(data).facObj;
-      facNewName = facForEdit[0].facultyName;
-      $("#facName").text(facNewName);
+      if(facForEdit != null){
+        facNewName = facForEdit[0].facultyName;
+        $("#facName").text(facNewName);
+      }else{
+        $('.contents').remove();
+        $.get('components/404.php', function(data) {
+            $('body').append(data);
+        });
+      }
     },
   });
 });

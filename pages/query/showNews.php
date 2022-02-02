@@ -1,6 +1,11 @@
 <?php 
 require('connect.php');
-$forMain =$_GET['forMain'];
+if(isset($_GET['forMain'])){
+  $forMain = $_GET['forMain'];
+}else{
+  $forMain = "";
+}
+
 $sql ="";
 if($forMain == 'yes'){
   $sql ="SELECT * FROM `articlesslide` WHERE startDate <= CURRENT_DATE() AND endDate >= CURRENT_DATE() ORDER BY `articlesslide`.`endDate` DESC";

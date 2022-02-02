@@ -1,13 +1,23 @@
 const uploaded = `สถานะ: <span style="color: green;">อัพโหลดเอกสารแล้ว</span>`;
 const notUpload = `สถานะ: <span style="color: red;">ยังไม่อัพโหลดเอกสาร</span>`;
 
-const showAlertSuccess = () => {
+const showAlertSuccess = (label) => {
   SoloAlert.alert({
     title: "เรียบร้อย",
     body: "อัพโหลดไฟล์เรียบร้อยแล้ว",
     icon: "success",
     useTransparency: true,
-    onOk : ()=>{location.reload()},
+    onOk : ()=>{
+      if(label == "other"){
+        $("#otherDocumentLabel").html(uploaded);
+      }
+      if(label == "payment"){
+        $("#statusPaymentStatementLabel").html(uploaded);
+      }
+      if(label == "bookBank"){
+        $("#bankPassbookLabel").html(uploaded);
+      }
+    },
   });
 };
 const showAlertFail = () => {
@@ -61,7 +71,7 @@ const otherUpload = (id) => {
     cache: false,
     success: function (data) {
       if (data == "true") {
-        showAlertSuccess();
+        showAlertSuccess("other");
       } else {
         showAlertFail();
       }
@@ -84,7 +94,7 @@ const bankPassbookUpload = (id) => {
     cache: false,
     success: function (data) {
       if (data == "true") {
-        showAlertSuccess();
+        showAlertSuccess("bookBank");
       } else {
         showAlertFail();
       }
@@ -107,7 +117,7 @@ const PaymentUpload = (id) => {
     cache: false,
     success: function (data) {
       if ((data = "true")) {
-        showAlertSuccess();
+        showAlertSuccess("payment");
       } else {
         showAlertFail();
       }
@@ -171,7 +181,6 @@ $(document).ready(function () {
   $("#bankPassbookUpload").prop("disabled", true);
   $("#PaymentStatementUpload").prop("disabled", true);
   let userId = $("#id").val();
-  $("#otherDocumentFile").attr("src","./documents/students/1161304620353_otherDoc.pdf")
   showStudentUploaded(userId)
 });
 

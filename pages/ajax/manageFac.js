@@ -139,6 +139,9 @@ const addFac = (facName) => {
           body: "เพิ่มคณะเรียบร้อยแล้ว",
           icon: "success",
           useTransparency: true,
+          onOk:()=>{
+            $("#facultyName").val('');
+          }
         });
         table.destroy();
         $("#tbody").children().remove();
@@ -149,9 +152,9 @@ const addFac = (facName) => {
           body: "มีชื่อคณะนี้แล้ว!!",
           icon: "error",
           useTransparency: true,
-          // onOk: () => {
-          //   window.location.href = "showStudentsInfo.php";
-          // },
+          onOk:()=>{
+            $("#facultyName").val('');
+          }
         });
       } else {
         SoloAlert.alert({
@@ -159,9 +162,9 @@ const addFac = (facName) => {
           body: "มีบางอย่างผิดพลาด!!",
           icon: "error",
           useTransparency: true,
-          // onOk: () => {
-          //   window.location.href = "showStudentsInfo.php";
-          // },
+          onOk:()=>{
+            $("#facultyName").val('');
+          }
         });
       }
     },
