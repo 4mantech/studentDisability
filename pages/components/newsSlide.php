@@ -49,9 +49,12 @@
       forMain:'yes'
     },
     success:function(data){
-      var new_data = JSON.parse(data).newsObj;
-      var newImg = ""
-      var newBtn = ""
+      const new_data = JSON.parse(data).newsObj;
+      if(new_data == null){
+      
+      }else{
+      let newImg = ""
+      let newBtn = ""
       let count =0
  
       new_data.forEach((element,index) => {
@@ -72,6 +75,7 @@
       $("#imgNews").html(newImg);
       $("#btnNews").html(newBtn);
       console.log(new_data);
+      }
     },
   })
 
