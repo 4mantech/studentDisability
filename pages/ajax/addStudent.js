@@ -88,7 +88,11 @@ const callAjax = () => {
 };
 $("#fac").change(function () {
   fac = $("#fac").val();
-  $("#dep").prop( "disabled", false );
+  if (fac != 0) {
+    $("#dep").prop("disabled", false);
+  } else {
+    $("#dep").prop("disabled", true);
+  }
   showDepartments(fac);
 });
 $("#file").change(function () {
@@ -111,9 +115,9 @@ $("#birthday").change(function () {
   $("#age").val(age);
 });
 $(document).ready(function () {
-  $('#nav_student_info a').addClass(' active');
+  $("#nav_student_info a").addClass(" active");
   showFaculties();
-  $("#dep").prop( "disabled", true );
+  $("#dep").prop("disabled", true);
 });
 $("#name").keyup(function () {
   if ($("#name").val() != "") {
@@ -220,12 +224,7 @@ $("#submit").click(function () {
     name == "" ||
     surname == "" ||
     nickname == "" ||
-    address == "" ||
     birthday == "" ||
-    subdistrict == "" ||
-    District == "" ||
-    Province == "" ||
-    PostalCode == "" ||
     DisaCardId == "" ||
     disType == "" ||
     telNum == "" ||
@@ -245,31 +244,8 @@ $("#submit").click(function () {
         "animate__animated animate__headShake is-invalid"
       );
     }
-    if (address == "") {
-      $("#address").addClass("animate__animated animate__headShake is-invalid");
-    }
     if (birthday == "") {
       $("#birthday").addClass(
-        "animate__animated animate__headShake is-invalid"
-      );
-    }
-    if (subdistrict == "") {
-      $("#subdistrict").addClass(
-        "animate__animated animate__headShake is-invalid"
-      );
-    }
-    if (District == "") {
-      $("#District").addClass(
-        "animate__animated animate__headShake is-invalid"
-      );
-    }
-    if (Province == "") {
-      $("#Province").addClass(
-        "animate__animated animate__headShake is-invalid"
-      );
-    }
-    if (PostalCode == "") {
-      $("#PostalCode").addClass(
         "animate__animated animate__headShake is-invalid"
       );
     }

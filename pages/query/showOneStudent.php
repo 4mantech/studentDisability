@@ -1,7 +1,7 @@
 <?php 
 require('connect.php');
 $id = $_GET['id'];
-$sql = "SELECT u.id,userName,firstName,lastName,phone,idCardNumber,idCodeAcdemy,birthDate,
+$sql = "SELECT u.id,userName,firstName,lastName,u.role,phone,idCardNumber,idCodeAcdemy,birthDate,
 nickName,departmentId,address,imageProfilePath,subDistrict,district,province,
 postalCode,disabilityId,disabilityType,yearOfEdu,facultyId FROM users u 
 INNER JOIN studentdetail s ON u.id = s.userId

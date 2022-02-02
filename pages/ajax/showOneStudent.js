@@ -118,35 +118,43 @@ $(document).ready(function () {
             $('body').append(data);
         });
       }else{
+       if(new_data[0].role == 1){
+        $('.contents').remove();
+        $.get('components/403.php', function(data) {
+            $('body').append(data);
+        });
+       }else{
 
-        $("#name").val(new_data[0].firstName);
-        $("#surname").val(new_data[0].lastName);
-        $("#nickname").val(new_data[0].nickName);
-        $("#birthday").val(new_data[0].birthDate);
-        $("#address").val(new_data[0].address);
-        $("#Province").val(new_data[0].province);
-        $("#District").val(new_data[0].district);
-        $("#subdistrict").val(new_data[0].subDistrict);
-        $("#PostalCode").val(new_data[0].postalCode);
-        $("#DisaCardId").val(new_data[0].disabilityId);
-        $("#disType").val(new_data[0].disabilityType);
-        $("#telNum").val(new_data[0].phone);
-        $("#EduYear").val(new_data[0].yearOfEdu);
-        $("#StuId").val(new_data[0].userName);
-        $("#fac").val(new_data[0].facultyId);
-        var fac = new_data[0].facultyId;
-        let dep = new_data[0].departmentId;
-        $("#profileimg").val(new_data[0].imageProfilePath);
-        let src1 = "../pages/img/students/" + new_data[0].imageProfilePath;
-        $("#profileimg").attr("src", src1);
-        showDepartments(fac, dep);
-        var dob = new Date(new_data[0].birthDate);
-        var month_diff = Date.now() - dob.getTime();
-        var age_dt = new Date(month_diff);
-        var year = age_dt.getUTCFullYear();
-        var age = Math.abs(year - 1970);
-        $("#age").val(age);
-        showFaculties(fac);
+         $("#name").val(new_data[0].firstName);
+         $("#surname").val(new_data[0].lastName);
+         $("#nickname").val(new_data[0].nickName);
+         $("#birthday").val(new_data[0].birthDate);
+         $("#address").val(new_data[0].address);
+         $("#Province").val(new_data[0].province);
+         $("#District").val(new_data[0].district);
+         $("#subdistrict").val(new_data[0].subDistrict);
+         $("#PostalCode").val(new_data[0].postalCode);
+         $("#DisaCardId").val(new_data[0].disabilityId);
+         $("#disType").val(new_data[0].disabilityType);
+         $("#telNum").val(new_data[0].phone);
+         $("#EduYear").val(new_data[0].yearOfEdu);
+         $("#StuId").val(new_data[0].userName);
+         $("#fac").val(new_data[0].facultyId);
+         var fac = new_data[0].facultyId;
+         let dep = new_data[0].departmentId;
+         $("#profileimg").val(new_data[0].imageProfilePath);
+         let src1 = "../pages/img/students/" + new_data[0].imageProfilePath;
+         $("#profileimg").attr("src", src1);
+         showDepartments(fac, dep);
+         var dob = new Date(new_data[0].birthDate);
+         var month_diff = Date.now() - dob.getTime();
+         var age_dt = new Date(month_diff);
+         var year = age_dt.getUTCFullYear();
+         var age = Math.abs(year - 1970);
+         $("#age").val(age);
+         showFaculties(fac);
+       }
+
       }
     },
   });
