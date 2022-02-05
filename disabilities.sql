@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2022 at 09:47 AM
+-- Generation Time: Feb 05, 2022 at 03:25 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -34,16 +34,6 @@ CREATE TABLE `articlesslide` (
   `startDate` date NOT NULL,
   `endDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `articlesslide`
---
-
-INSERT INTO `articlesslide` (`id`, `imagePath`, `imageName`, `startDate`, `endDate`) VALUES
-(1, 'rm.png', 'HNY2022', '2022-01-01', '2022-01-31'),
-(2, 'news3.jpg', 'รับสมัคร นศ', '2022-01-01', '2022-01-31'),
-(3, 'eKob.jpg', 'up skill', '2022-01-12', '2022-01-31'),
-(5, '555.png', '555', '2022-01-01', '2066-12-31');
 
 -- --------------------------------------------------------
 
@@ -115,7 +105,7 @@ INSERT INTO `departments` (`id`, `facultyId`, `departmentName`) VALUES
 (55, 10, 'เทคโนโลยีการพิมพ์ดิจิทัลและบรรจุภัณฑ์'),
 (56, 10, 'เทคโนโลยีการถ่ายภาพและภาพยนตร์'),
 (58, 8, 'สาขาวิชาเทคโนโลยีสถาปัตยกรรมศาสตร์'),
-(59, 8, 'สาขาวิชาสถาปัตยกรรมภายใน'),
+(59, 8, 'สาขาวิชาเทคโนโลยีสถาปัตยกรรมศาสตร์'),
 (63, 10, 'เทคโนโลยีสื่อดิจิทัล'),
 (64, 10, 'สาขาเทคโนโลยีการโทรทัศน์และวิทยุกระจายเสียง'),
 (65, 10, 'เทคโนโลยีมัลติมีเดีย'),
@@ -137,9 +127,7 @@ INSERT INTO `departments` (`id`, `facultyId`, `departmentName`) VALUES
 (86, 12, 'การแพทย์แผนไทยประยุกต์บัณฑิต'),
 (87, 12, 'สาขาวิชาสุขภาพและความงาม\r\n'),
 (88, 12, 'สาขาวิชานวัตกรรมผลิตภัณฑ์สุขภาพ'),
-(89, 12, 'สาขาวิชาการแพทย์ทางเลือก (นานาชาติ)'),
-(92, 2, 'วิศวกรรม'),
-(139, 2, 'วิศวกรรมเวนิส');
+(89, 12, 'สาขาวิชาการแพทย์ทางเลือก (นานาชาติ)');
 
 -- --------------------------------------------------------
 
@@ -154,15 +142,6 @@ CREATE TABLE `documents` (
   `documentName` varchar(255) NOT NULL,
   `documentType` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `documents`
---
-
-INSERT INTO `documents` (`id`, `userId`, `documentPath`, `documentName`, `documentType`) VALUES
-(2, 4, '116130462028-8_PaymentStatement.pdf', 'PaymentStatement', 'pdf'),
-(3, 4, '116130462028-8_bankPassbook.jpg', 'bankPassbook', 'jpg'),
-(4, 4, '116130462028-8_otherDoc.pdf', 'otherDocument', 'pdf');
 
 -- --------------------------------------------------------
 
@@ -191,10 +170,7 @@ INSERT INTO `faculties` (`id`, `facultyName`) VALUES
 (10, 'คณะเทคโนโลยีสื่อสารมวลชน'),
 (11, 'คณะศิลปศาสตร์'),
 (12, 'คณะการแพทย์บูรณาการ'),
-(13, 'คณะพยาบาลศาสตร์'),
-(15, 'เวนิส'),
-(17, 'คณะเวนิส'),
-(18, 'เทสชื่อซ้ำ');
+(13, 'คณะพยาบาลศาสตร์');
 
 -- --------------------------------------------------------
 
@@ -216,18 +192,6 @@ CREATE TABLE `studentdetail` (
   `disabilityType` varchar(255) NOT NULL COMMENT 'ประเภทผู้พิการ',
   `yearOfEdu` varchar(255) NOT NULL COMMENT 'ชั้นปี'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `studentdetail`
---
-
-INSERT INTO `studentdetail` (`id`, `userId`, `departmentId`, `address`, `imageProfilePath`, `subDistrict`, `district`, `province`, `postalCode`, `disabilityId`, `disabilityType`, `yearOfEdu`) VALUES
-(1, 1, 21, 'ซอยนกเขา', 'potae.jpg', 'ในเมือง', 'เมือง', 'ชัยนาท', '17000', '1', 'กล้ามเนื้ออ่อนแรง', '4'),
-(2, 2, 4, 'ซอยนกเขาจุ๊กกรู่', 'potae.jpg', 'ชัยนาท', 'เมือง', 'ชัยนาท', '17000', '1161', 'เอ๋อ', '2'),
-(3, 3, 77, 'ซอยนกเข๊า', 'student.jpg', '', 'เมือง', 'ชัยนนาทท', '17000', '112', '', '1'),
-(4, 4, 21, '238 ม.6', '116130462028-8.jpg', 'ชัยนาทืืืทหฟกฟหกฟหก', 'เมือง', 'ชัยนาท', '17000', '1236', '', '4'),
-(6, 6, 21, '126/2', 'kantapat.jpg', 'เฟียส', 'พระพรหม', 'นครศรีธรรมราช', '80000', '3123123', 'ดีสุดๆ', '4'),
-(7, 19, 82, 'กฟหกฟหก', 'กฟหกฟหก.jpg', 'ท้ายสำเภา', 'กฟหกฟหกฟห', 'กฟหกฟห', 'กฟหกฟห', 'กฟหก', 'ฟหกฟห', 'กฟหกฟห');
 
 -- --------------------------------------------------------
 
@@ -255,15 +219,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `userName`, `password`, `firstName`, `lastName`, `role`, `phone`, `idCardNumber`, `idCodeAcdemy`, `birthDate`, `age`, `nickName`) VALUES
-(1, 'admin', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'อดิศักดิ์', 'มีทอง', 0, '1234', '1234', '', '2022-01-02', 24, 'แอดมินเต้'),
-(2, 'staff', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'เจ้าหน้าที่', '1', 1, '1234', '11', '', '2022-01-09', 1, 'เจ้าหน้าที่'),
-(3, 'student', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'นักศึกษา', 'พิการสมอง', 2, '0', '112', 'student', '2011-11-10', 10, 'นักศึกษาโปเต้'),
-(4, '116130462028-8', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'ธนพงศ์', 'เขียวโพธิ์', 2, '097', '1236', '116130462028-8', '1998-01-02', 24, 'เด้'),
-(6, '1161304620353', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'กันตพัฒน์', ' สุภาวีระวัฒน์', 2, '0987290448', '3123123', '1161304620353', '1997-09-12', 24, 'เฟียส'),
-(19, 'กฟหกฟหก', 'e15c6b4e33ef32148ad553891d32f4e8de1987de7efd978d3d3cc55feff554f0', 'ทดสอบ', 'เพิ่มรูป', 2, 'กฟหกฟห', 'กฟหก', 'กฟหกฟหก', '2022-01-04', 0, 'กฟหกฟหกฟหกฟห'),
-(20, '11613046', 'e054b4961582d22749780d11a6a87acf110e6b9416e9664254adecc368478efd', 'staff1', '123', 1, '1234', '1189900', '11613046', '1998-01-02', 0, 'gfh'),
-(22, '1161304622', '388c89c06678031cfbb1815f73839cefc28401a327b1102594036cfe2fc90f4a', 'staff1', 'ฟหกฟหก', 1, '1das', '123455', '1161304622', '2022-01-26', 0, 'asd'),
-(24, 'd', '5cf9b82a953eb92f43d358f2b2d23e7b55bd5f612366b44b15df92a5811cadd0', 'asdasd', 'asdasd', 1, 'ฟหก', 'ddae', 'd', '1999-01-11', 0, 'ddqwe');
+(1, 'admin', '18284863aa8fcb504eea24c9319d2d25d858361c68121b13d2df1059811b66e7', 'อดิศักดิ์', 'มีทอง', 0, '099', '112345', 'admin', '1997-02-05', 24, 'แอดมินเต้ No.1');
 
 --
 -- Indexes for dumped tables
@@ -319,37 +275,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `articlesslide`
 --
 ALTER TABLE `articlesslide`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `faculties`
 --
 ALTER TABLE `faculties`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `studentdetail`
 --
 ALTER TABLE `studentdetail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส', AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables
