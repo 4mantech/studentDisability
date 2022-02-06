@@ -17,7 +17,6 @@ $StuId = $_POST['StuId'];
 $fac = $_POST['fac'];
 $dep = $_POST['dep'];
 
-
 if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != "") {
   $filename = $_FILES['file']['name'];
   $location = "../img/students/" . $filename;
@@ -35,8 +34,6 @@ if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != "") {
 }else{
   $newname = "profile.jpg";
 }
-
-
 
 $checkCardId = "SELECT idCardNumber FROM users WHERE '$disaCardId' = idCardNumber";
 $resultCheck = mysqli_query($conn, $checkCardId);
@@ -114,9 +111,9 @@ VALUES (
   if ($result2) {
     echo "true";
   } else {
-    echo "false result2";
+    echo "false";
   }
 } else {
-  echo "false result";
+  echo "false";
 }
 mysqli_close($conn);
