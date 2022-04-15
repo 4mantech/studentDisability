@@ -13,7 +13,7 @@
   require('query/checkLogin.php');
   if($_SESSION['role'] != "staff"){
     session_destroy();
-    header("Location:../main.php");
+    header("Location:../pages/main.php");
   }
   ?>
 </head>
@@ -42,7 +42,17 @@
           <div class="row">
             <div class="col-2">
             </div>
-            <div class="col-4">
+            <div class="col-1">
+              <div class=" text-start form-outline mb-3">
+                <label>คำนำหน้า</label>
+                <select class="form-select form-control form-control-md" name="prefix" id="prefix" aria-label="Default select example" required>
+                  <option value="นาย">นาย</option>
+                  <option value="นางสาว">นางสาว</option>
+                  <option value="นาง">นาง</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-3">
               <div class=" text-start form-outline mb-3 ">
                 <label>ชื่อจริง</label>
                 <input type="text" name="name" id="name" class="form-control form-control-md" placeholder="ชื่อจริง" required />
@@ -93,15 +103,21 @@
               <div class="col-2">
               </div>
                 <div class="col-4">
-                <div class=" text-start form-outline mb-3">
-                  <label>ตำบล</label>
-                  <input type="text" name="subdistrict" id="subdistrict" class="form-control form-control-md" placeholder="ตำบล" required/>
-                </div>
+
+                <div class=" text-start form-outline mb-3 ">
+                <label>จังหวัด</label>
+                <!-- <input type="text" name="Province" id="Province" class="form-control form-control-md" placeholder="จังหวัด" required /> -->
+                <select class="form-select" aria-label="Default select example" name="Province" id="Province">
+                        </select>
+              </div>
+               
               </div>
               <div class="col-4">
               <div class=" text-start form-outline mb-3 ">
                 <label>เขต/อำเภอ</label>
-                <input type="text" name="District" id="District" class="form-control form-control-md" placeholder="เขต/อำเภอ" required />
+                <!-- <input type="text" name="District" id="District" class="form-control form-control-md" placeholder="เขต/อำเภอ" required /> -->
+                <select class="form-select" aria-label="Default select example" name="District" id="District">
+                        </select>
               </div>
             </div>
             </div>
@@ -111,10 +127,12 @@
             </div>
             
             <div class="col-2">
-              <div class=" text-start form-outline mb-3 ">
-                <label>จังหวัด</label>
-                <input type="text" name="Province" id="Province" class="form-control form-control-md" placeholder="จังหวัด" required />
-              </div>
+            <div class=" text-start form-outline mb-3">
+                  <label>ตำบล</label>
+                  <!-- <input type="text" name="subdistrict" id="subdistrict" class="form-control form-control-md" placeholder="ตำบล" required/> -->
+                  <select class="form-select" aria-label="Default select example" name="subdistrict" id="subdistrict">
+                        </select>
+                </div>
             </div>
             <div class="col-2">
               <div class=" text-start form-outline mb-3 ">
@@ -133,8 +151,6 @@
           <div class="row">
             <div class="col-2">
             </div>
-            
-            
           </div>
 
           <div class="row">

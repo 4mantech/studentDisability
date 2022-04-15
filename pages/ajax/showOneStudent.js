@@ -101,6 +101,7 @@ function preview_image(event) {
   reader.readAsDataURL(event.target.files[0]);
 }
 $(document).ready(function () {
+
   let id = $("#id").val();
   $('#nav_student_info a').addClass(' active');
 
@@ -110,21 +111,22 @@ $(document).ready(function () {
     data: {
       id: id,
     },
-    success: function (data) {
+    success: function (data) { // data คือ ค่าที่ได้รับกลับมาจากการ query 
       const new_data = JSON.parse(data).studentObj;
       if(new_data == null){
-        $('.contents').remove();
+        $('.contents').remove(); // # ไอดี || . class
         $.get('components/404.php', function(data) {
-            $('body').append(data);
+            $('body').append(data); //
         });
       }else{
-       if(new_data[0].role == 1){
+       if(new_data[0].role == 1){ 
         $('.contents').remove();
         $.get('components/403.php', function(data) {
             $('body').append(data);
         });
        }else{
-
+         $(`#prefix  option[value="${new_data[0].prefix}"]`).prop("selected", true)
+         console.log(new_data[0].prefix);
          $("#name").val(new_data[0].firstName);
          $("#surname").val(new_data[0].lastName);
          $("#nickname").val(new_data[0].nickName);
@@ -154,7 +156,6 @@ $(document).ready(function () {
          $("#age").val(age);
          showFaculties(fac);
        }
-
       }
     },
   });

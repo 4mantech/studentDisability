@@ -35,7 +35,7 @@ const ShowUsers = () => {
 const confirmDel = (id) => {
   SoloAlert.confirm({
     title: "ยืนยัน",
-    body: "คุณต้องการเจ้าหน้าที่คนนี้ใช่หรือไม่ ?",
+    body: "คุณต้องการลบเจ้าหน้าที่คนนี้ใช่หรือไม่ ?",
     useTransparency: true,
     onOk: () => {
       deleteUser(id);

@@ -44,13 +44,23 @@
           <div class="row">
             <div class="col-2">
             </div>
-            <div class="col-4">
+            <div class="col-2">
+              <div class=" text-start form-outline mb-3">
+                <label>คำนำหน้า</label>
+                <select class="form-select form-control form-control-md canEdit" name="prefix" id="prefix" aria-label="Default select example" required disabled>
+                  <option value="นาย">นาย</option>
+                  <option value="นางสาว">นางสาว</option>
+                  <option value="นาง">นาง</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-3">
               <div class=" text-start form-outline mb-3 ">
                 <label>ชื่อจริง</label>
                 <input type="text" name="name" id="name" class="form-control form-control-md canEdit" placeholder="ชื่อจริง" required disabled />
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-3">
               <div class=" text-start form-outline mb-3 ">
                 <label>นามสกุล</label>
                 <input type="text" name="surname" id="surname" class="form-control form-control-md canEdit" placeholder="นามสกุล" required disabled />

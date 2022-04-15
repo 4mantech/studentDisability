@@ -11,7 +11,7 @@
   require('query/checkLogin.php');
   if($_SESSION['role'] != "staff"){
     session_destroy();
-    header("Location:../main.php");
+    header("Location:../pages/main.php");
   }
   ?>
 </head>

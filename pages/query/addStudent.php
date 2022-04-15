@@ -1,15 +1,15 @@
 <?php
 require('connect.php');
+$prefix = $_POST['prefix'];
 $name = $_POST['name'];
 $surname = $_POST['surname'];
 $nickname = $_POST['nickname'];
 $birthday = $_POST['birthday'];
 $address = $_POST['address'];
-$province = $_POST['Province'];
-$district = $_POST['District'];
 $subdistrict = $_POST['subDistrict'];
 $postalCode = $_POST['PostalCode'];
 $disaCardId = $_POST['DisaCardId'];
+$age = $_POST['age'];
 $disType = $_POST['disType'];
 $telNum = $_POST['telNum'];
 $EduYear = $_POST['EduYear'];
@@ -47,6 +47,7 @@ if (mysqli_num_rows($resultCheck) >= 1) {
   `users`(
       `userName`,
       `password`,
+      `prefix`,
       `firstName`,
       `lastName`,
       `role`,
@@ -60,6 +61,7 @@ if (mysqli_num_rows($resultCheck) >= 1) {
 VALUES (
       '$StuId',
       '$hash_login_password',
+      '$prefix',
       '$name',
       '$surname',
       '2',
@@ -86,8 +88,6 @@ if ($result) {
         `address`,
         `imageProfilePath`,
         `subDistrict`,
-        `district`,
-        `province`,
         `postalCode`,
         `disabilityId`,
         `disabilityType`,
@@ -99,8 +99,6 @@ VALUES (
         '$address',
         '$newname',
         '$subdistrict',
-        '$district',
-        '$province',
         '$postalCode',
         '$disaCardId',
         '$disType',

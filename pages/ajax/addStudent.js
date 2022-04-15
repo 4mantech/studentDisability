@@ -18,7 +18,62 @@ const showFaculties = () => {
   });
 };
 
-var showDepartments = (facId) => {
+const showProvinces = () => {
+  $.ajax({
+    type: "get",
+    url: "query/showProvinces.php",
+    success: function (response) {
+      const { provincesObj } = JSON.parse(response);
+      showDistricts(provincesObj[0].id);
+      provincesObj.forEach((element) => {
+        $("#Province").append(`
+          <option value="${element.id}">${element.name_in_thai}</option>
+          `);
+      });
+    },
+  });
+};
+
+const showDistricts = (provinceId) => {
+  $.ajax({
+    type: "get",
+    data: {
+      provinceId,
+    },
+    url: "query/showDistricts.php",
+    success: function (response) {
+      const { districtsObj } = JSON.parse(response);
+      districtsObj.forEach((element) => {
+        $("#District").append(`
+          <option value="${element.id}">${element.name_in_thai}</option>
+          `);
+      });
+      showSubDistricts(districtsObj[0].id);
+    },
+  });
+};
+
+const showSubDistricts = (districtId) => {
+  $.ajax({
+    type: "get",
+    data: {
+      districtId,
+    },
+    url: "query/showSubDistricts.php",
+    success: function (response) {
+      const { subDistrictsObj } = JSON.parse(response);
+      subDistrictsObj.forEach((element) => {
+        $("#subdistrict").append(`
+          <option value="${element.id}">${element.name_in_thai}</option>
+          `);
+      });
+      $("#PostalCode").val(subDistrictsObj[0].zip_code);
+      getZipCode = subDistrictsObj;
+    },
+  });
+};
+
+const showDepartments = (facId) => {
   $.ajax({
     url: "query/showDepartments.php",
     type: "GET",
@@ -41,17 +96,17 @@ var showDepartments = (facId) => {
 const callAjax = () => {
   file = $("#file")[0].files;
   formdata = new FormData();
+  formdata.append("prefix", $("#prefix").val());
   formdata.append("name", $("#name").val());
   formdata.append("surname", $("#surname").val());
   formdata.append("nickname", $("#nickname").val());
   formdata.append("birthday", $("#birthday").val());
   formdata.append("address", $("#address").val());
-  formdata.append("Province", $("#Province").val());
-  formdata.append("District", $("#District").val());
   formdata.append("subDistrict", $("#subdistrict").val());
   formdata.append("PostalCode", $("#PostalCode").val());
   formdata.append("DisaCardId", $("#DisaCardId").val());
   formdata.append("disType", $("#disType").val());
+  formdata.append("age", $("#age").val());
   formdata.append("telNum", $("#telNum").val());
   formdata.append("EduYear", $("#EduYear").val());
   formdata.append("StuId", $("#StuId").val());
@@ -115,6 +170,7 @@ $("#birthday").change(function () {
   $("#age").val(age);
 });
 $(document).ready(function () {
+  showProvinces();
   $("#nav_student_info a").addClass(" active");
   showFaculties();
   $("#dep").prop("disabled", true);
@@ -198,6 +254,26 @@ $("#dep").change(function () {
   if ($("#dep").val() != "0") {
     $("#dep").removeClass("is-invalid");
   }
+});
+
+$("#Province").change(function () {
+  $("#District").children().remove();
+  $("#subdistrict").children().remove();
+  showDistricts($(this).val());
+});
+
+$("#District").change(function () {
+  $("#subdistrict").children().remove();
+  showSubDistricts($(this).val());
+});
+
+
+$("#subdistrict").change(function () {
+  getZipCode.forEach((element) => {
+    if ($(this).val() == element.id) {
+      $("#PostalCode").val(element.zip_code);
+    }
+  });
 });
 
 $("#submit").click(function () {

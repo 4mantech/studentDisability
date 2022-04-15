@@ -10,9 +10,9 @@
   require('../bootstrap5CSS.php');
   require('../bootstrap5JS.php');
   require('query/checkLogin.php');
-  if ($_SESSION['role'] != "admin") {
+  if ($_SESSION['role'] != "staff") {
     session_destroy();
-    header("Location:../main.php");
+    header("Location:../pages/main.php");
   }
   ?>
   <link rel="stylesheet" href="../assets/css/styleMain.css">
@@ -39,7 +39,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">ข่าวสารอาหารแห้ง</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">ข่าวสาร</h5>
         </div>
         <div class="modal-body text-center">
           <img id="biggerNews" class="border" style="width: 848px; height: 410px;">

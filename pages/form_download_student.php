@@ -12,7 +12,7 @@
   require('query/checkLogin.php');
   if ($_SESSION['role'] != "student") {
     session_destroy();
-    header("Location:../main.php");
+    header("Location:../pages/main.php");
   }
   ?>
 </head>

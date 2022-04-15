@@ -11,6 +11,7 @@ $(document).ready(function () {
     },
     success: function (data) {
       const new_data = JSON.parse(data).studentObj;
+      $(`#prefix  option[value="${new_data[0].prefix}"]`).prop("selected", true)
       $("#name").val(new_data[0].firstName);
       $("#surname").val(new_data[0].lastName);
       $("#nickname").val(new_data[0].nickName);

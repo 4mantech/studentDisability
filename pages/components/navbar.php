@@ -45,13 +45,10 @@ if($s_login_role == "นักศึกษา"){
                 if($s_login_role == "แอดมิน"){
               ?>
               <li id="manage_user" class="nav-item">
-                <a class="nav-link"  id="manage" href="manageUsers.php">จัดการข้อมูลผู้ใช้</a>
+                <a class="nav-link"  id="manage" href="manageUsers.php">จัดการข้อมูลเจ้าหน้าที่</a>
               </li>
               <li id="manage_fac" class="nav-item">
                 <a class="nav-link"  id="manageFac" href="manageFac.php">จัดการคณะ</a>
-              </li>
-              <li id="manage_news" class="nav-item">
-                <a class="nav-link"  id="manageNews" href="manageNews.php">จัดการข่าว</a>
               </li>
               <?php
                 }
@@ -62,6 +59,9 @@ if($s_login_role == "นักศึกษา"){
               </li>
               <li id="nav_upload" class="nav-item">
                 <a class="nav-link"  id="upload" href="form_upload_staff.php">อัพโหลดเอกสาร</a>
+              </li>
+              <li id="manage_news" class="nav-item">
+                <a class="nav-link"  id="manageNews" href="manageNews.php">จัดการข่าว</a>
               </li>
               <?php
                 }

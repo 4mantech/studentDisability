@@ -29,7 +29,6 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card shadow-2-strong" id="card" style="border-radius: 1rem; margin-top: 10%; opacity:88%">
-          <!-- <div class="card shadow-2-strong" id="card" style="border-radius: 1rem; margin-top: 10%; opacity:88%"> -->
           <div class="card-body p-5 text-center">
             <img src="img/logo.png" class="animate__animated animate__slideInDown" style="width:150px; height:150px;">
             <h4 class="mb-5">ระบบจัดการข้อมูลนักศึกษาของศูนย์บริการนักศึกษาพิการในมหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี</h4>

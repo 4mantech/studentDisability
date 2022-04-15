@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>จัดการผู้ใช้งาน</title>
+  <title>จัดการข้อมูลเจ้าหน้าที่</title>
   <?php
   require('../bootstrap5CSS.php');
   require('../bootstrap5JS.php');
   require('query/checkLogin.php');
   if ($_SESSION['role'] != "admin") {
     session_destroy();
-    header("Location:../main.php");
+    header("Location:../pages/main.php");
   }
   ?>
   <link rel="stylesheet" href="../assets/css/styleMain.css">
@@ -30,7 +30,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="changePasswordLabelLabel">เปลี่ยนรหัสผ่านสตาฟ</h5>
+          <h5 class="modal-title" id="changePasswordLabelLabel">เปลี่ยนรหัสผ่านเจ้าหน้าที่</h5>
         </div>
         <div class="modal-body">
 
@@ -153,7 +153,7 @@
       <div class="col-2">
       </div>
       <div class=" col-8 mt-2">
-        <h4>จัดการข้อมูลผู้ใช้</h4>
+        <h4>จัดการข้อมูลเจ้าหน้าที่</h4>
         <a href="form_add_user.php" id="addUser" type="button" class="btn btn-success mb-3"> เพิ่มผู้ใช้งาน </a>
         <div class="row">
           <table class="table table-striped" id="tableUsers">
