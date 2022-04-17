@@ -39,6 +39,12 @@ $(document).ready(function () {
       var age = Math.abs(year - 1970);
       $("#age").val(age);
       showFaculties(fac);
+      showInfoProvince(new_data[0].provinceId);
+          showInfoDistrict(new_data[0].provinceId, new_data[0].districtId);
+          showInfoSubDistrict(
+            new_data[0].districtId,
+            new_data[0].subDistrictId
+          );
     },
   });
 });
@@ -85,12 +91,110 @@ const showDepartments = (facId, depId) => {
     },
   });
 };
+
+
+const showInfoProvince = (provinceId) => {
+  $.ajax({
+    type: "get",
+    url: "query/showProvinces.php",
+    success: function (response) {
+      $("#Province").children().remove();
+      const { provincesObj } = JSON.parse(response);
+      let html = "";
+      provincesObj.forEach((element) => {
+        html += `<option value="${element.id}"`;
+        if (provinceId == element.id) {
+          html += "selected";
+        }
+        html += `>${element.name_in_thai}</option>`;
+      });
+      $("#Province").append(html);
+    },
+  });
+};
+
+const showInfoDistrict = (provinceId, districtId) => {
+  $.ajax({
+    type: "get",
+    data: {
+      provinceId,
+    },
+    url: "query/showDistricts.php",
+    success: function (response) {
+      const { districtsObj } = JSON.parse(response);
+      $("#District").children().remove();
+      let html = "";
+      districtsObj.forEach((element) => {
+        html += `<option value="${element.id}"`;
+        if (districtId == element.id) {
+          html += "selected";
+        }
+        html += `>${element.name_in_thai}</option>`;
+      });
+      showInfoSubDistrict(districtsObj[0].id);
+
+      $("#District").append(html);
+    },
+  });
+};
+
+const showInfoSubDistrict = (districtId, subDistrictId) => {
+  $.ajax({
+    type: "get",
+    data: {
+      districtId,
+    },
+    url: "query/showSubDistricts.php",
+    success: function (response) {
+      $("#subdistrict").children().remove();
+      const { subDistrictsObj } = JSON.parse(response);
+      let html = "";
+      subDistrictsObj.forEach((element) => {
+        html += `<option value="${element.id}"`;
+        if (subDistrictId == element.id) {
+          html += " selected";
+        }
+        html += `>${element.name_in_thai}</option>`;
+      });
+      showZipCode(subDistrictsObj[0].id);
+      $("#subdistrict").append(html);
+    },
+  });
+};
+
+const showZipCode = (subDistrictId) => {
+  $.ajax({
+    type: "GET",
+    url: "query/showZipcode.php",
+    data: {
+      subDistrictId,
+    },
+    success: function (response) {
+      const { zipCodeObj } = JSON.parse(response);
+      $("#PostalCode").val(zipCodeObj.zip_code);
+    },
+  });
+};
 $("#fac").change(function () {
   fac = $("#fac").val();
   showDepartments(fac, 0);
 });
 $("#file").change(function () {
   preview_image(event);
+});
+
+$("#Province").change(function (e) {
+  e.preventDefault();
+  showInfoProvince(e.currentTarget.value);
+  showInfoDistrict(e.currentTarget.value);
+});
+$("#District").change(function (e) {
+  e.preventDefault();
+  showInfoSubDistrict(e.currentTarget.value);
+});
+$("#subdistrict").change(function (e) {
+  e.preventDefault();
+  showZipCode(e.currentTarget.value);
 });
 
 function preview_image(event) {

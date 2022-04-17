@@ -2,6 +2,7 @@
 require('connect.php');
 $id = $_POST['id'];
 $name = $_POST['name'];
+$prefix = $_POST['prefix'];
 $surname = $_POST['surname'];
 $nickname = $_POST['nickname'];
 $birthday = $_POST['birthday'];
@@ -20,10 +21,6 @@ $fac = $_POST['fac'];
 $dep = $_POST['dep'];
 
 
-// echo $id. "<br>".$name. "<br>" .$surname. "<br>".$nickname. "<br>".$birthday. "<br>".$age. "<br>".$address. "<br>".$province. "<br>"
-// .$subdistrict. "<br>".$district. "<br>".$postalCode."<br>".$disaCardId. "<br>".$disType. "<br>".$telNum. 
-// "<br>".$EduYear. "<br>".$StuId. "<br> fac:".$fac. "<br> dep:".$dep; 
-
 $updateStudentDetail = "";
 
 $checkCardId = "SELECT idCardNumber FROM users WHERE id != '$id' AND idCardNumber = '$disaCardId'";
@@ -33,6 +30,7 @@ $query = "UPDATE
   `users`
 SET
   `userName` = '$StuId',
+  `prefix` = '$prefix',
   `firstName` = '$name',
   `lastName` = '$surname',
   `phone` = '$telNum',

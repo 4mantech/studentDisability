@@ -106,14 +106,18 @@
             </div>
             <div class="col-4">
               <div class=" text-start form-outline mb-3">
-                <label>ตำบล</label>
-                <input type="text" name="subdistrict" id="subdistrict" class="form-control form-control-md canEdit" placeholder="ตำบล" required disabled />
+                <label>จังหวัด</label>
+                <!-- <input type="text" name="subdistrict" id="subdistrict" class="form-control form-control-md canEdit" placeholder="ตำบล" required disabled /> -->
+                <select class="form-select canEdit" aria-label="Default select example" name="Province" id="Province" required disabled>
+                </select>
               </div>
             </div>
             <div class="col-4">
               <div class=" text-start form-outline mb-3 ">
                 <label>เขต/อำเภอ</label>
-                <input type="text" name="District" id="District" class="form-control form-control-md canEdit" placeholder="เขต/อำเภอ" required disabled />
+                <!-- <input type="text" name="District" id="District" class="form-control form-control-md canEdit" placeholder="เขต/อำเภอ" required disabled /> -->
+                <select class="form-select canEdit" aria-label="Default select example" name="District" id="District" required disabled>
+                </select>
               </div>
             </div>
           </div>
@@ -124,8 +128,10 @@
 
             <div class="col-2">
               <div class=" text-start form-outline mb-3 ">
-                <label>จังหวัด</label>
-                <input type="text" name="Province" id="Province" class="form-control form-control-md canEdit" placeholder="จังหวัด" required disabled />
+                <label>ตำบล</label>
+                <!-- <input type="text" name="Province" id="Province" class="form-control form-control-md canEdit" placeholder="จังหวัด" required disabled /> -->
+                <select class="form-select canEdit" aria-label="Default select example" name="subdistrict" id="subdistrict" required disabled>
+                </select>
               </div>
             </div>
             <div class="col-2">
